@@ -1,6 +1,12 @@
 <template>
- 
-  <div style="margin: auto; width: 400px" v-if="showBackIcon">
+  <div
+    style="margin: auto"
+    v-if="showBackIcon"
+    :class="{
+      'move-back-button': moveBackButton,
+      'back-button': !moveBackButton,
+    }"
+  >
     <v-btn prepend-icon="mdi-arrow-left" variant="text" @click="$router.go(-1)">
       Back
     </v-btn>
@@ -27,6 +33,12 @@ export default {
       } else {
         this.showBackIcon = true;
       }
+
+      if (window.location.pathname == "/add-session") {
+        this.moveBackButton = true;
+      } else {
+        this.moveBackButton = false;
+      }
     },
   },
 };
@@ -35,5 +47,11 @@ export default {
 .logo {
   height: 75px;
   width: 170px;
+}
+.move-back-button {
+  width: 624px;
+}
+.back-button {
+  width: 400px;
 }
 </style>
