@@ -1,4 +1,13 @@
 <template>
+  <CoursesHeader></CoursesHeader>
+  <v-btn
+    class="session-creation__create--button"
+    color="amber-accent-4"
+    @click="createSession"
+  >
+    Create session
+  </v-btn>
+  <v-btn @click="requestSession">Request session</v-btn>
   <div class="courses">
     <div class="left">
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
@@ -12,7 +21,11 @@
           ></CoursePreview>
         </div>
         <div class="title">Closed sessions</div>
-        <div v-for="closedCourse in completedCourses" :key="closedCourse.id" class="course">
+        <div
+          v-for="closedCourse in completedCourses"
+          :key="closedCourse.id"
+          class="course"
+        >
           <CoursePreview :course="closedCourse"></CoursePreview>
         </div>
       </div>
@@ -35,6 +48,7 @@ import CoursePreview from "@/components/CoursePreview.vue";
 import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import TopSessions from "@/components/TopSessions.vue";
 import WishLists from "@/components/WishLists.vue";
+import CoursesHeader from "@/components/Header.vue";
 import moment from "moment";
 import { mapState } from "pinia";
 import { useSessionsStore } from "@/store/sessions.js";
@@ -46,6 +60,7 @@ export default {
     FilterEventsRow,
     TopSessions,
     WishLists,
+    CoursesHeader,
   },
   data() {
     return {
@@ -116,11 +131,16 @@ export default {
     redirect(course) {
       this.$router.push({ name: "course", params: { id: course.id } });
     },
+    createSession() {
+      this.$router.push({ name: "addSession" });
+    },
+    requestSession() {
+      this.$router.push({ name: "requestSession" });
+    },
   },
 };
 </script>
 <style>
-
 .courses {
   display: flex;
   flex-direction: row;

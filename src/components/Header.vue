@@ -1,14 +1,6 @@
 <template>
-  <img src="src/assets/CommunityLogo.jpg" class="logo" />
-  <v-btn
-    class="session-creation__create--button"
-    color="amber-accent-4"
-    @click="createSession"
-  >
-    Create session
-  </v-btn>
-  <v-btn @click="requestSession">Request session</v-btn>
-  <div style="margin: auto; width: 400px">
+ 
+  <div style="margin: auto; width: 400px" v-if="showBackIcon">
     <v-btn prepend-icon="mdi-arrow-left" variant="text" @click="$router.go(-1)">
       Back
     </v-btn>
@@ -17,12 +9,24 @@
 <script>
 export default {
   name: "CoursesHeader",
+  data: () => ({
+    showBackIcon: false,
+  }),
   methods: {
     createSession() {
       this.$router.push({ name: "addSession" });
     },
     requestSession() {
       this.$router.push({ name: "requestSession" });
+    },
+  },
+  watch: {
+    $route: function () {
+      if (window.location.pathname == "/") {
+        this.showBackIcon = false;
+      } else {
+        this.showBackIcon = true;
+      }
     },
   },
 };

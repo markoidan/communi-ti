@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-main>
+      <img src="src/assets/CommunityLogo.jpg" class="logo" />
       <CoursesHeader></CoursesHeader>
       <router-view />
     </v-main>
@@ -32,5 +33,9 @@ export default {
 }
 .course-filter {
   width: 100px;
+}
+.logo {
+  height: 75px;
+  width: 170px;
 }
 </style>
