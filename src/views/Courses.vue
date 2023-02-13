@@ -125,7 +125,7 @@ export default {
       this[filteredItem.Label] = filteredItem.Value;
     },
     redirect(course) {
-      this.$router.replace({ name: "course", params: { id: course.id } });
+      this.$router.push({ name: "course", params: { id: course.id } });
     },
   },
 };
