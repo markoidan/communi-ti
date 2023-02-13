@@ -4,24 +4,16 @@
     <div class="left">
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
       <div class="title">Upcoming sessions</div>
-      <div class="course">
-        <div v-for="(course, index) in courses" :key="course.id">
+      <div class="courses-container">
+        <div v-for="(course, index) in courses" :key="index" class="course">
           <CoursePreview
             :course="course"
             @click="redirect(course)"
           ></CoursePreview>
-          <v-divider
-            class="divider"
-            v-if="index != courses.length - 1"
-          ></v-divider>
         </div>
         <div class="title">Closed sessions</div>
-        <div v-for="closedCourse in completedCourses" :key="closedCourse.id">
+        <div v-for="closedCourse in completedCourses" :key="closedCourse.id" class="course">
           <CoursePreview :course="closedCourse"></CoursePreview>
-          <v-divider
-            class="divider"
-            v-if="index != closedCourses.length - 1"
-          ></v-divider>
         </div>
       </div>
     </div>
@@ -130,19 +122,28 @@ export default {
 };
 </script>
 <style>
+
 .courses {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  gap: 30px;
   height: calc(95vh);
 }
+.courses-container {
+  /* display: flex;
+  flex-direction: row; */
+}
 .course {
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
+  width: 350px;
+  display: inline-block;
+  margin: 20px;
+  vertical-align: top;
+  height: 280px;
 }
 .left {
-  display: flex;
-  flex-direction: column;
   flex: 2;
-
   margin-left: 40px;
 }
 .right {
