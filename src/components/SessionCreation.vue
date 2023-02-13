@@ -1,66 +1,69 @@
 <template>
   <div class="session-creation">
-    <div class="session-creation__first-section">
-      <div class="session-creation__session">
-        <span>Session name</span>
-        <v-text-field
-          :label="sessionPlaceholder"
-          variant="outlined"
-          @update:modelValue="updateSessionName"
-          class="session-creation__session--text"
-        ></v-text-field>
-      </div>
-      <div class="session-creation__categoryAndLevel">
-        <div class="session-creation__category">
-          <span>Category</span>
-          <filter-events
-            :items="categories"
-            @filterChanged="updateCategory"
-          ></filter-events>
+    <div class="session-creation__header">Create your session</div>
+    <div class="session-creation__section">
+      <div class="session-creation__first-section">
+        <div class="session-creation__session">
+          <span>Session name</span>
+          <v-text-field
+            :label="sessionPlaceholder"
+            variant="outlined"
+            @update:modelValue="updateSessionName"
+            class="session-creation__session--text"
+          ></v-text-field>
         </div>
-        <div class="session-creation__level">
-          <session-level @selectLevel="updateSessionLevel" />
+        <div class="session-creation__categoryAndLevel">
+          <div class="session-creation__category">
+            <span>Category</span>
+            <filter-events
+              :items="categories"
+              @filterChanged="updateCategory"
+            ></filter-events>
+          </div>
+          <div class="session-creation__level">
+            <session-level @selectLevel="updateSessionLevel" />
+          </div>
         </div>
       </div>
-    </div>
-    <div class="session-creation__second-section">
-      <div class="session-creation__dateAndLength">
-        <div class="session-creation__date">
-          <span>Date</span>
-          <filter-events-date
-            @filterChanged="updateDate"
-            class="session-creation__date--data"
+      <div class="session-creation__second-section">
+        <div class="session-creation__dateAndLength">
+          <div class="session-creation__date">
+            <span>Date</span>
+            <filter-events-date
+              @filterChanged="updateDate"
+              class="session-creation__date--data"
+            />
+          </div>
+          <session-length
+            @selectLength="updateSessionLength"
+            class="session-creation__length"
           />
         </div>
-        <session-length
-          @selectLength="updateSessionLength"
-          class="session-creation__length"
-        />
+        <div class="session-creation__details">
+          <span>Details</span>
+          <v-textarea
+            :label="detailsPlaceholder"
+            variant="outlined"
+            class="session-creation__details--text"
+            @update:modelValue="updateDetails"
+          ></v-textarea>
+        </div>
       </div>
-      <div class="session-creation__details">
-        <span>Details</span>
-        <v-textarea
-          :label="detailsPlaceholder"
-          variant="outlined"
-          class="session-creation__details--text"
-          @update:modelValue="updateDetails"
-        ></v-textarea>
+      <div class="session-creation__create">
+        <v-checkbox
+          @click="createAnother()"
+          class="session-creation__create--checkbox"
+          label="Create another"
+          color="indigo-darken-3"
+        ></v-checkbox>
+        <v-btn
+          class="session-creation__create--button"
+          color="amber-accent-4"
+          @click="createSession"
+        >
+          Create
+        </v-btn>
       </div>
-    </div>
-    <div class="session-creation__create">
-      <v-checkbox
-        @click="createAnother()"
-        class="session-creation__create--checkbox"
-        label="Create another"
-        color="indigo-darken-3"
-      ></v-checkbox>
-      <v-btn
-        class="session-creation__create--button"
-        color="amber-accent-4"
-        @click="createSession"
-      >
-        Create
-      </v-btn>
     </div>
   </div>
 </template>
@@ -97,7 +100,6 @@ export default {
         length: 0,
         attendees: [],
       },
-      details: "",
     };
   },
   components: { FilterEvents, SessionLevel, SessionLength, FilterEventsDate },
@@ -114,7 +116,6 @@ export default {
       if (!this.isWantToCreateAnother) {
         this.$router.push("/");
       } else {
-        this.isWantToCreateAnother = false;
         this.session = {
           description: "",
           id: null,
@@ -132,6 +133,9 @@ export default {
           length: 0,
           attendees: [],
         };
+        this.$nextTick (() => {
+        this.isWantToCreateAnother = false;
+        });
       }
     },
     updateDetails($event) {
@@ -159,6 +163,17 @@ export default {
 
 <style scoped>
 .session-creation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.session-creation__header {
+  font-size: -webkit-xxx-large;
+  font-weight: bolder;
+  font-family: "Lato";
+  margin-left: 40px;
+}
+.session-creation__section {
   display: flex;
   flex-direction: column;
   font-weight: bold;
@@ -194,6 +209,7 @@ export default {
 .session-creation__level {
   display: flex;
   flex-direction: column;
+  padding-left: 60px;
 }
 .session-creation__dateAndLength {
   display: flex;

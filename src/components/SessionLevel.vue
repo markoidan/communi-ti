@@ -29,6 +29,5 @@ export default {
 .session-level {
   display: flex;
   flex-direction: column;
-  padding-left: 100px;
 }
 </style>

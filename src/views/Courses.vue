@@ -8,6 +8,7 @@
     Create session
   </v-btn>
   <v-btn @click="requestSession">Request session</v-btn>
+  <request-session-modal :is-open="isRequestSessionModalOpen" @close="isRequestSessionModalOpen = false" />
   <div class="courses">
     <div class="left">
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
@@ -54,10 +55,10 @@ import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import TopSessions from "@/components/TopSessions.vue";
 import WishLists from "@/components/WishLists.vue";
 import CoursesHeader from "@/components/Header.vue";
+import RequestSessionModal from "../components/RequestSessionModal.vue";
 import moment from "moment";
 import { mapState } from "pinia";
 import { useSessionsStore } from "@/store/sessions.js";
-
 export default {
   name: "CoursesView",
   components: {
@@ -66,15 +67,16 @@ export default {
     TopSessions,
     WishLists,
     CoursesHeader,
+    RequestSessionModal,
   },
   data() {
     return {
       categoryFilter: [],
       levelFilter: [],
       dateFilter: [],
+      isRequestSessionModalOpen: false,
     };
   },
-
   computed: {
     ...mapState(useSessionsStore, ["closedCourses", "openCourses"]),
     completedCourses() {
@@ -86,7 +88,6 @@ export default {
         if (startDate && endDate) {
           isDateBetween = compareDate.isBetween(startDate, endDate);
         }
-
         if (
           (this.categoryFilter.length == 0 ||
             this.categoryFilter.indexOf(a.category) > -1) &&
@@ -107,14 +108,12 @@ export default {
         startDate = moment(this.dateFilter[0]);
         endDate = moment(this.dateFilter[1]);
       }
-
       return this.openCourses.filter((a) => {
         const compareDate = moment(a.date, "DD/MM/YYYY");
         let isDateBetween = true;
         if (startDate && endDate) {
           isDateBetween = compareDate.isBetween(startDate, endDate);
         }
-
         if (
           (this.categoryFilter.length == 0 ||
             this.categoryFilter.indexOf(a.category) > -1) &&
@@ -134,13 +133,13 @@ export default {
       this[filteredItem.Label] = filteredItem.Value;
     },
     redirect(course) {
-      this.$router.push({ name: "course", params: { id: course.id } });
+      this.$router.push({ name: "session", params: { id: course.id } });
     },
     createSession() {
       this.$router.push({ name: "addSession" });
     },
     requestSession() {
-      this.$router.push({ name: "requestSession" });
+      this.isRequestSessionModalOpen = true;
     },
   },
 };

@@ -18,14 +18,6 @@ export default {
   data: () => ({
     showBackIcon: false,
   }),
-  methods: {
-    createSession() {
-      this.$router.push({ name: "addSession" });
-    },
-    requestSession() {
-      this.$router.push({ name: "requestSession" });
-    },
-  },
   watch: {
     $route: function () {
       if (window.location.pathname == "/") {
@@ -33,7 +25,6 @@ export default {
       } else {
         this.showBackIcon = true;
       }
-
       if (window.location.pathname == "/add-session") {
         this.moveBackButton = true;
       } else {

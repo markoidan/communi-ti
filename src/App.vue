@@ -25,10 +25,8 @@ export default {
 ::-webkit-scrollbar {
   display: none;
 }
-
 ::-webkit-scrollbar-track {
 }
-
 ::-webkit-scrollbar-thumb {
 }
 .course-filter {
