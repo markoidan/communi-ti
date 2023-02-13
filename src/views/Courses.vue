@@ -110,7 +110,7 @@ export default {
           (this.categoryFilter.length == 0 ||
             this.categoryFilter.indexOf(a.category) > -1) &&
           (this.levelFilter.length == 0 ||
-            this.levelFilter.indexOf(a.levelFilter) > -1) &&
+            this.levelFilter.indexOf(a.level) > -1) &&
           isDateBetween
         ) {
           return true;

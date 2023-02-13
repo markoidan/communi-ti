@@ -1,12 +1,6 @@
 <template>
   <v-app>
     <v-main>
-      <v-img
-        :aspect-ratio="aspectRatio"
-        :width="300"
-        src="src/assets/logo.jpg"
-        cover
-      ></v-img>
       <router-view />
     </v-main>
   </v-app>
