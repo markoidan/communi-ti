@@ -349,7 +349,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/nir.jpg",
           description: "Software Engineering Manager",
         },
-        name: "Coralogix Log Management",
+        name: "Coralogix",
         date: "11/10/23",
         time: "15",
         location: "Tavor",
@@ -428,44 +428,50 @@ export const useSessionsStore = defineStore("sessions", {
         ],
       },
     ],
+
+    wishList: [
+      {
+        name: "Israeli History",
+        level: "Beginner",
+        category: "other",
+        description:
+          "I am writing to express my interest in enrolling in your Israeli History course at the beginner level. I am eager to gain a comprehensive understanding of the key events, people, and themes in Israeli history and am confident that I will be able to contribute to the class discussions and activities.",
+        likes: 5,
+      },
+      {
+        name: "Data Science",
+        level: "Beginner",
+        category: "tech",
+        description:
+          "I am writing to express my interest in enrolling in your Data Science course at the beginner level. I am eager to gain a comprehensive understanding of the fundamental concepts and techniques in data science, and I believe that your course would provide me with the perfect introduction to this exciting field.",
+        likes: 4,
+      },
+      {
+        name: "Web Development",
+        level: "Advance",
+        category: "tech",
+        description:
+          "I am reaching out to inquire about enrolling in your Web Development course at the advanced level. I have prior experience in web development and I am eager to take my skills to the next level by learning about advanced techniques and technologies in this field. I believe that your course will provide me with the knowledge and hands-on experience I need to grow as a web developer.",
+        likes: 4,
+      },
+      {
+        name: "Nutrition and Diet",
+        level: "Beginner",
+        category: "other",
+        description:
+          "I am reaching out to inquire about enrolling in your Nutrition and Diet course at the beginner level. I am interested in learning about the fundamental concepts and principles of healthy eating and nutrition, and I believe that your course would provide me with the foundation I need to pursue this interest further.",
+        likes: 3,
+      },
+      {
+        name: "Creative Writing",
+        level: "Beginner",
+        category: "creative",
+        description:
+          "I am reaching out to inquire about enrolling in your Creative Writing course at the beginner level. I have always been interested in writing and storytelling, and I would like to develop my skills in this area. I believe that your course would provide me with the knowledge, techniques, and inspiration I need to bring my writing to the next level.",
+        likes: 1,
+      },
+    ],
   }),
-  wishList: [
-    {
-      "name": "Israeli History",
-      "level": "Beginner",
-      "category": "other",
-      "description": "I am writing to express my interest in enrolling in your Israeli History course at the beginner level. I am eager to gain a comprehensive understanding of the key events, people, and themes in Israeli history and am confident that I will be able to contribute to the class discussions and activities.",
-      "likes": 5
-    },
-    {
-      "name": "Data Science",
-      "level": "Beginner",
-      "category": "tech",
-      "description": "I am writing to express my interest in enrolling in your Data Science course at the beginner level. I am eager to gain a comprehensive understanding of the fundamental concepts and techniques in data science, and I believe that your course would provide me with the perfect introduction to this exciting field.",
-      "likes": 4
-    },
-	{
-      "name": "Web Development",
-      "level": "Advance",
-      "category": "tech",
-      "description": "I am reaching out to inquire about enrolling in your Web Development course at the advanced level. I have prior experience in web development and I am eager to take my skills to the next level by learning about advanced techniques and technologies in this field. I believe that your course will provide me with the knowledge and hands-on experience I need to grow as a web developer.",
-      "likes": 4
-    },
-	{
-      "name": "Nutrition and Diet",
-      "level": "Beginner",
-      "category": "other",
-      "description": "I am reaching out to inquire about enrolling in your Nutrition and Diet course at the beginner level. I am interested in learning about the fundamental concepts and principles of healthy eating and nutrition, and I believe that your course would provide me with the foundation I need to pursue this interest further.",
-      "likes": 3
-    },
-	{
-      "name": "Creative Writing",
-      "level": "Beginner",
-      "category": "creative",
-      "description": "I am reaching out to inquire about enrolling in your Creative Writing course at the beginner level. I have always been interested in writing and storytelling, and I would like to develop my skills in this area. I believe that your course would provide me with the knowledge, techniques, and inspiration I need to bring my writing to the next level.",
-      "likes": 1
-    }
-  ],  
   getters: {
     topCourses: (state) => {
       const topValues = state.openCourses.sort(
