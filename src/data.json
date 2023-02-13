@@ -1,4 +1,13 @@
 {
+  "categories": [
+    "tech",
+    "product",
+    "marketing",
+    "creative",
+    "hobbies",
+    "other"
+  ],
+  "levels": ["Beginner", "Intermediate", "Advance"],
   "courses": [
     {
       "description": "This is a short description",
@@ -6,13 +15,13 @@
       "speaker": {
         "name": "Ori pearl",
         "pictureUrl": "src/assets/avatar.png",
-        "description":"I am so cool"
+        "description": "I am so cool"
       },
       "date": "THU,FEB 16",
       "name": "Coralogix",
       "location": "room",
       "details": "information about the lecture",
-      "genre": "tech",
+      "category": "tech",
       "attendees": []
     },
     {
@@ -26,7 +35,7 @@
       "location": "room",
       "description": "This is a short description",
       "details": "information about the lecture",
-      "genre": "tech",
+      "category": "tech",
       "attendees": []
     }
   ]
