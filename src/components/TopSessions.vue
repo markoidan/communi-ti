@@ -22,7 +22,7 @@ export default {
         (a, b) => b.attendees.length - a.attendees.length
       );
 
-      return topValues.slice(0, 5);
+      return topValues.slice(0, 3);
     },
   },
 };
