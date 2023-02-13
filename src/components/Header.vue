@@ -8,6 +8,7 @@
     Create session
   </v-btn>
   <v-btn @click="requestSession">Request session</v-btn>
+    <request-session-modal :is-open="isRequestSessionModalOpen" @close="isRequestSessionModalOpen = false" />
   <div style="margin: auto; width: 400px">
     <v-btn prepend-icon="mdi-arrow-left" variant="text" @click="$router.go(-1)">
       Back
@@ -15,14 +16,22 @@
   </div>
 </template>
 <script>
+import RequestSessionModal from "../components/RequestSessionModal.vue";
+
 export default {
   name: "CoursesHeader",
+  components: { RequestSessionModal },
+  data() {
+    return {
+      isRequestSessionModalOpen: false,
+    };
+  },
   methods: {
     createSession() {
       this.$router.push({ name: "addSession" });
     },
     requestSession() {
-      this.$router.push({ name: "requestSession" });
+      this.isRequestSessionModalOpen = true;
     },
   },
 };

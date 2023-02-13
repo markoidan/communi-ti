@@ -9,8 +9,8 @@ const routes = [
     component: Courses,
   },
   {
-    path: "/course/:id",
-    name: "course",
+    path: "/session/:id",
+    name: "session",
     component: CourseView,
   },
   {
@@ -20,16 +20,7 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
-  },
-  {
-    path: "/request-session",
-    name: "requestSession",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "sessionCreationView" */ "../views/SessionCreationView.vue"),
   },
 ];
 

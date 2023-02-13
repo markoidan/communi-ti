@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="session-creation-view">
     <session-creation />
   </div>
 </template>
@@ -14,11 +14,9 @@ export default {
 };
 </script>
 <style scoped>
-.about {
+.session-creation-view {
   display: flex;
   justify-content: center;
-  padding: 10px;
-  margin-left: 10px;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 </style>
