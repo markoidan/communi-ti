@@ -134,7 +134,7 @@ export default {
 .courses {
   display: flex;
   flex-direction: row;
-  height: calc(95vh);
+  height: calc(90vh);
 }
 .course {
   overflow-y: scroll;
@@ -147,19 +147,15 @@ export default {
   margin-left: 40px;
 }
 .right {
-  margin-top: 112px;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 .top-sessions {
-  margin: 10px;
-  margin-top: 70px;
   flex: 1;
 }
 .wishlists {
-  height: 50%;
-  padding: 40px;
+  flex: 1;
 }
 .title {
   text-align: left;
