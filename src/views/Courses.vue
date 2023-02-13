@@ -1,11 +1,10 @@
 <template>
   <div class="courses">
     <h1>Courses 1</h1>
-    <CoursePreview
-      v-for="course in courses"
-      :key="course.id"
-      :course="course"
-    ></CoursePreview>
+    <div v-for="course in courses" :key="course.id">
+      <CoursePreview :course="course"></CoursePreview>
+      <v-divider class="divider"></v-divider>
+    </div>
   </div>
 </template>
 
@@ -28,3 +27,8 @@ export default {
   },
 };
 </script>
+<style>
+.divider {
+  margin: 20px 0; 
+}
+</style>
