@@ -437,4 +437,16 @@ export const useSessionsStore = defineStore("sessions", {
       return topValues.slice(0, 3);
     },
   },
+  actions: {
+    addSession(newSession) {
+      let max = 0;
+      this.openCourses.forEach((session) => {
+        if (session.id > max) {
+          max = session.id;
+        }
+      });
+      newSession.id = max++;
+      this.openCourses.push(newSession);
+    },
+  },
 });

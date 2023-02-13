@@ -1,5 +1,24 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <session-creation />
   </div>
 </template>
+<script>
+import SessionCreation from "../components/SessionCreation.vue";
+export default {
+  name: "CoursesView",
+  components: { SessionCreation },
+  data() {
+    return {};
+  },
+};
+</script>
+<style scoped>
+.about {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 60px;
+}
+</style>
