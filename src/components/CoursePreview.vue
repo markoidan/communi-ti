@@ -1,13 +1,18 @@
 <template>
   <div class="preview">
-    
-    <SpeakerMetadata
-      class="avatar"
-      :speaker="course.speaker"
-      :iconSize="80"
-      isSmallSize:true
-    ></SpeakerMetadata>
-    <div class="name">{{ course.name }}</div>
+    <div>
+      <SpeakerMetadata
+        class="avatar"
+        :speaker="course.speaker"
+        :iconSize="45"
+        isSmallSize:true
+      ></SpeakerMetadata>
+    </div>
+
+    <div class="name">
+      <span>{{ course.name }}</span>
+      <CourseCategory :category="course.category"></CourseCategory>
+    </div>
     <div class="date">{{ course.date }}</div>
     <div class="description">{{ course.description }}</div>
   </div>
@@ -15,6 +20,7 @@
 
 <script>
 import SpeakerMetadata from "./SpeakerMetadata.vue";
+import CourseCategory from "./CourseCategory.vue";
 export default {
   name: "CoursePreview",
   props: {
@@ -22,6 +28,7 @@ export default {
   },
   components: {
     SpeakerMetadata,
+    CourseCategory,
   },
   mounted() {},
 };
@@ -39,6 +46,9 @@ export default {
   font-weight: bold;
   font-size: 18px;
   line-height: 24px;
+}
+.name span {
+  margin-right: 10px;
 }
 .description {
   padding-bottom: 10px;

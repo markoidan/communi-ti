@@ -219,7 +219,7 @@ export const useSessionsStore = defineStore("sessions", {
           "Retiring at age 40 is an ambitious goal that requires careful planning and financial management.",
         details:
           "Retiring at age 40 is an ambitious goal that requires careful planning and financial management. In this course, students will learn how to create a comprehensive retirement plan that will help them achieve their goal of retiring early. They will learn about different investment strategies, such as stocks, bonds, real estate, and more, and how to effectively allocate their assets to maximize returns and minimize risk. Additionally, students will learn about tax-efficient retirement planning, including the use of retirement accounts, such as 401(k)s and IRAs, and how to take advantage of government benefits, such as Social Security. The course will also cover budgeting, debt management, and other important financial topics that are essential for achieving financial independence. By the end of the course, students will have a solid understanding of the steps they need to take to retire at age 40 and be well on their way to achieving this goal.",
-        category: "Other",
+        category: "other",
         level: "Beginner",
         attendees: [
           { full_name: "Hannah Gonzalez" },
@@ -242,7 +242,7 @@ export const useSessionsStore = defineStore("sessions", {
           "Parental guidance is an educational course that provides tools and strategies for parents to raise happy, healthy, and well-adjusted children.",
         details:
           "'Parental Guidance' is an educational course that provides tools and strategies for parents to raise happy, healthy, and well-adjusted children. The course covers various stages of a child's development, from infancy to adulthood, and provides guidance on how to navigate the unique challenges that each stage presents. Topics include child behavior and discipline, communication, nutrition and health, and academic and career planning. The course also covers issues such as building strong parent-child relationships, dealing with conflict, and fostering independence and self-esteem in children. Additionally, the course will provide information on resources and support systems available to parents, such as counseling services, community programs, and support groups. By the end of the course, parents will have a better understanding of how to raise confident and successful children and be equipped with the skills and knowledge they need to provide the best possible guidance and support to their children.",
-        category: "Other",
+        category: "other",
         level: "Beginner",
         attendees: [
           { full_name: "Avery Jones" },
@@ -280,7 +280,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/jenny.jpg",
           description: "Software Engineer",
         },
-        name: "Lattice Theory and Application",
+        name: "Lattice Theory",
         date: "01/09/23",
         time: "30",
         location: "Golan",
