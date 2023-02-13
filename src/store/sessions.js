@@ -18,7 +18,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 1,
         speaker: {
           name: "Daniel Litmanovich",
-          pictureUrl: "src/assets/Daniel.png",
+          pictureUrl: "src/assets/daniel.jpg",
           description: "Automation Engineer",
         },
         date: "01/03/23 8:00",
@@ -40,7 +40,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 2,
         speaker: {
           name: "Narkis Daniel",
-          pictureUrl: "src/assets/narkis.png",
+          pictureUrl: "src/assets/Narkis.jpg",
         },
         name: "Vue 3",
         date: "02/04/23",
@@ -68,7 +68,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 3,
         speaker: {
           name: "Jenny Kolmanovitch",
-          pictureUrl: "src/assets/jenny.png",
+          pictureUrl: "src/assets/jenny.jpg",
         },
         name: "Product Marketing",
         date: "03/04/23",
@@ -88,7 +88,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 4,
         speaker: {
           name: "Idan Marko",
-          pictureUrl: "src/assets/idan.png",
+          pictureUrl: "src/assets/idan.jpg",
         },
         name: "Admin 2.0",
         date: "04/05/23",
@@ -109,7 +109,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 5,
         speaker: {
           name: "Yoav Ben Azar",
-          pictureUrl: "src/assets/yoav.png",
+          pictureUrl: "src/assets/yoav.jpg",
         },
         name: "Marketing Basics",
         date: "05/05/23",
@@ -130,7 +130,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 6,
         speaker: {
           name: "Sveta Osherov Gross",
-          pictureUrl: "src/assets/sveta.png",
+          pictureUrl: "src/assets/sveta.jpg",
         },
         name: "Digital Marketing Strategy",
         date: "06/06/23",
@@ -151,7 +151,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 7,
         speaker: {
           name: "Moshe Tikochinski",
-          pictureUrl: "src/assets/moshe.png",
+          pictureUrl: "src/assets/moshe.jpg",
         },
         name: "Creative Basics",
         date: "07/07/23",
@@ -172,7 +172,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 8,
         speaker: {
           name: "Niv Guetta",
-          pictureUrl: "src/assets/niv.png",
+          pictureUrl: "src/assets/niv.jpg",
         },
         name: "Creative Storytelling",
         date: "01/07/23",
@@ -193,7 +193,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 9,
         speaker: {
           name: "Sveta Osherov Gross",
-          pictureUrl: "src/assets/sveta.png",
+          pictureUrl: "src/assets/sveta.jpg",
         },
         name: "Retiring at age 40",
         date: "09/07/23",
@@ -214,7 +214,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 10,
         speaker: {
           name: "Daniel Litmanovich",
-          pictureUrl: "src/assets/daniel.png",
+          pictureUrl: "src/assets/daniel.jpg",
         },
         name: "Parental Guidance",
         date: "03/08/23",
@@ -235,7 +235,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 11,
         speaker: {
           name: "Narkis Daniel",
-          pictureUrl: "src/assets/narkis.png",
+          pictureUrl: "src/assets/Narkis.jpg",
         },
         name: "How to Plan a Trip",
         date: "09/08/23",
@@ -256,7 +256,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 12,
         speaker: {
           name: "Jenny Kolmanovich",
-          pictureUrl: "src/assets/jenny.png",
+          pictureUrl: "src/assets/jenny.jpg",
         },
         name: "Lattice Theory and Application",
         date: "01/09/23",
@@ -277,7 +277,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 13,
         speaker: {
           name: "Yoav Ben Azar",
-          pictureUrl: "src/assets/yoav.png",
+          pictureUrl: "src/assets/yoav.jpg",
         },
         name: "Female Empowerment",
         date: "09/09/23",
@@ -298,7 +298,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 14,
         speaker: {
           name: "Nir Kravetzky",
-          pictureUrl: "src/assets/nir.png",
+          pictureUrl: "src/assets/nir.jpg",
         },
         name: "Preventing Baby Colic",
         date: "09/07/23",
@@ -319,7 +319,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 15,
         speaker: {
           name: "Nir Kravetzky",
-          pictureUrl: "src/assets/nir.png",
+          pictureUrl: "src/assets/nir.jpg",
         },
         name: "Coralogix Log Management",
         date: "11/10/23",
@@ -342,7 +342,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 16,
         speaker: {
           name: "Narkis Daniel",
-          pictureUrl: "src/assets/narkis.png",
+          pictureUrl: "src/assets/Narkis.jpg",
         },
         name: "Cooking",
         date: "13/01/23",
@@ -370,7 +370,7 @@ export const useSessionsStore = defineStore("sessions", {
         id: 17,
         speaker: {
           name: "Jenny Kolmanovich",
-          pictureUrl: "src/assets/jenny.png",
+          pictureUrl: "src/assets/jenny.jpg",
         },
         name: "Russian",
         date: "02/02/23",
@@ -396,5 +396,12 @@ export const useSessionsStore = defineStore("sessions", {
       },
     ],
   }),
-  getters: {},
+  getters: {
+    topCourses: (state) => {
+      const topValues = state.openCourses.sort(
+        (a, b) => b.attendees.length - a.attendees.length
+      );
+      return topValues.slice(0, 3);
+    },
+  },
 });

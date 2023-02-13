@@ -38,7 +38,6 @@ import CoursePreview from "@/components/CoursePreview.vue";
 import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import TopSessions from "@/components/TopSessions.vue";
 import WishLists from "@/components/WishLists.vue";
-import router from "@/router";
 import moment from "moment";
 import { mapState } from "pinia";
 import { useSessionsStore } from "@/store/sessions.js";

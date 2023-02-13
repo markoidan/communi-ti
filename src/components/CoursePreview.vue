@@ -4,6 +4,7 @@
     <div class="name">{{ course.name }}</div>
     <div class="description">{{ course.description }}</div>
     <SpeakerMetadata
+      class="avatar"
       :speaker="course.speaker"
       :iconSize="42"
       isSmallSize:true
@@ -12,14 +13,14 @@
 </template>
 
 <script>
-// import SpeakerMetadata from "./SpeakerMetadata.vue";
+import SpeakerMetadata from "./SpeakerMetadata.vue";
 export default {
   name: "CoursePreview",
   props: {
     course: Object,
   },
   components: {
-    // SpeakerMetadata,
+    SpeakerMetadata,
   },
   mounted() {},
 };
@@ -45,5 +46,8 @@ export default {
   padding-bottom: 10px;
   color: grey;
   line-height: 20px;
+}
+.avatar {
+  margin-bottom: 20px;
 }
 </style>

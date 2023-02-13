@@ -11,19 +11,14 @@
   </div>
 </template>
 <script>
-import jsonData from "../data.json";
+import { useSessionsStore } from "@/store/sessions.js";
 import CoursePreview from "@/components/CoursePreview.vue";
+import { mapState } from "pinia";
 export default {
   name: "TopSessions",
   components: { CoursePreview },
   computed: {
-    topCourses() {
-      var topValues = [...jsonData.courses].sort(
-        (a, b) => b.attendees.length - a.attendees.length
-      );
-
-      return topValues.slice(0, 3);
-    },
+    ...mapState(useSessionsStore, ["topCourses"]),
   },
 };
 </script>
