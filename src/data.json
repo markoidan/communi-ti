@@ -1,17 +1,27 @@
 {
+  "categories": [
+    "tech",
+    "product",
+    "marketing",
+    "creative",
+    "hobbies",
+    "other"
+  ],
+  "levels": ["Beginner", "Intermediate", "Advance"],
   "courses": [
     {
+      "description": "This is a short description",
       "id": 1,
       "speaker": {
         "name": "Ori pearl",
         "pictureUrl": "src/assets/avatar.png",
-        "description":"I am so cool"
+        "description": "I am so cool"
       },
       "date": "22/03/2022",
       "name": "Coralogix",
       "location": "room",
       "details": "information about the lecture",
-      "genre": "tech",
+      "category": "tech",
       "attendees": []
     },
     {
@@ -23,8 +33,9 @@
       "name": "Vue 3",
       "date": "25/01/2022",
       "location": "room",
+      "description": "This is a short description",
       "details": "information about the lecture",
-      "genre": "tech",
+      "category": "tech",
       "attendees": []
     }
   ]

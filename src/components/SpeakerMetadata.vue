@@ -22,7 +22,7 @@ export default {
     speaker: Object,
     isSmallSize: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
 };
