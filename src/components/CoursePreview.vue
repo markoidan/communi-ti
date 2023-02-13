@@ -2,9 +2,11 @@
   <div class="preview">
     <div class="date">{{ course.date }}</div>
     <div class="name">{{ course.name }}</div>
-    <div class="details">{{ course.details }}</div>
-    <!-- <div class="speaker">{{ course.speaker.name }}</div> -->
-    <SpeakerMetadata :speaker="course.speaker" :iconSize="42"
+    <div class="description">{{ course.description }}</div>
+    <SpeakerMetadata
+      :speaker="course.speaker"
+      :iconSize="42"
+      isSmallSize:true
     ></SpeakerMetadata>
   </div>
 </template>
@@ -39,10 +41,9 @@ export default {
   line-height: 24px;
   margin-bottom: 4px;
 }
-.details {
+.description {
   padding-bottom: 10px;
   color: grey;
   line-height: 20px;
 }
-
 </style>

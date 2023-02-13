@@ -1,6 +1,7 @@
 {
   "courses": [
     {
+      "description": "This is a short description",
       "id": 1,
       "speaker": {
         "name": "Ori pearl",
@@ -23,6 +24,7 @@
       "name": "Vue 3",
       "date": "THU,FEB 16",
       "location": "room",
+      "description": "This is a short description",
       "details": "information about the lecture",
       "genre": "tech",
       "attendees": []
