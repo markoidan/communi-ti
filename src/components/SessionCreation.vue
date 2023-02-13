@@ -6,16 +6,20 @@
         <v-text-field
           :label="sessionPlaceholder"
           variant="outlined"
+          @update:modelValue="updateSessionName"
           class="session-creation__session--text"
         ></v-text-field>
       </div>
       <div class="session-creation__categoryAndLevel">
         <div class="session-creation__category">
           <span>Category</span>
-          <filter-events :items="categories"></filter-events>
+          <filter-events
+            :items="categories"
+            @filterChanged="updateCategory"
+          ></filter-events>
         </div>
         <div class="session-creation__level">
-          <session-level />
+          <session-level @selectLevel="updateSessionLevel" />
         </div>
       </div>
     </div>
@@ -23,9 +27,15 @@
       <div class="session-creation__dateAndLength">
         <div class="session-creation__date">
           <span>Date</span>
-          <filter-events-date class="session-creation__date--data" />
+          <filter-events-date
+            @filterChanged="updateDate"
+            class="session-creation__date--data"
+          />
         </div>
-        <session-length class="session-creation__length"/>
+        <session-length
+          @selectLength="updateSessionLength"
+          class="session-creation__length"
+        />
       </div>
       <div class="session-creation__details">
         <span>Details</span>
@@ -33,8 +43,20 @@
           :label="detailsPlaceholder"
           variant="outlined"
           class="session-creation__details--text"
+          @update:modelValue="updateDetails"
         ></v-textarea>
       </div>
+    </div>
+    <div class="session-creation__create">
+      <v-checkbox
+        @click="createAnother()"
+        class="session-creation__create--checkbox"
+        label="Create another"
+        color="indigo-darken-3"
+      ></v-checkbox>
+      <v-btn class="session-creation__create--button" color="amber-accent-4" @click="createSession">
+        Create
+      </v-btn>
     </div>
   </div>
 </template>
@@ -44,7 +66,8 @@ import FilterEvents from "../components/FilterEvents.vue";
 import SessionLevel from "../components/SessionLevel.vue";
 import SessionLength from "../components/SessionLength.vue";
 import FilterEventsDate from "../components/FilterEventsDate.vue";
-import jsonData from "../data.json";
+import { useSessionsStore } from "@/store/sessions.js";
+import { mapActions, mapState } from "pinia";
 
 export default {
   name: "SessionCreation",
@@ -52,12 +75,79 @@ export default {
     return {
       detailsPlaceholder: "Session details ex, why would you join?",
       sessionPlaceholder: "Enter text...",
+      isWantToCreateAnother: false,
+      session: {
+        description: "",
+        id: null,
+        speaker: {
+          name: "Sveta Osherov Gross",
+          pictureUrl: "src/assets/Sveta.jpg",
+          description: "Digital Marketing Strategy",
+        },
+        date: "01/03/23 8:00",
+        name: "",
+        location: "Gordon",
+        details: "",
+        category: "",
+        level: "",
+        length: 0,
+        attendees: [],
+      },
+      details: "",
     };
   },
   components: { FilterEvents, SessionLevel, SessionLength, FilterEventsDate },
   computed: {
-    categories() {
-      return jsonData.categories;
+    ...mapState(useSessionsStore, ["categories"]),
+  },
+  methods: {
+    ...mapActions(useSessionsStore, ["addSession"]),
+    createAnother() {
+      this.isWantToCreateAnother = true;
+    },
+    createSession() {
+      this.addSession(this.session);
+      // if(!this.isWantToCreateAnother){
+      //   this.$route.push();
+      // }
+
+      this.isWantToCreateAnother = false;
+      this.session =  {
+        description: "",
+        id: null,
+        speaker: {
+          name: "Sveta Osherov Gross",
+          pictureUrl: "src/assets/Sveta.jpg",
+          description: "Digital Marketing Strategy",
+        },
+        date: "01/03/23 8:00",
+        name: "",
+        location: "Gordon",
+        details: "",
+        category: "",
+        level: "",
+        length: 0,
+        attendees: [],
+      }
+    },
+    updateDetails($event) {
+      this.session.details = $event;
+    },
+    updateSessionName($event) {
+      this.session.name = $event;
+    },
+    updateSessionLevel($event) {
+      this.session.level = $event;
+    },
+    updateSessionLength($event) {
+      this.session.length = $event;
+    },
+    updateCategory(category) {
+      this.session.category = Object.values(category.Value)[0];
+    },
+    updateDate(date) {
+      const getSpecificDate = date.Value[0].toString().split('GMT');
+      this.session.date = getSpecificDate[0];
     },
   },
 };
@@ -106,7 +196,7 @@ export default {
   flex-direction: row;
   align-items: baseline;
 }
-.session-creation__length{
+.session-creation__length {
   padding-left: 50px;
 }
 .session-creation__date {
@@ -130,5 +220,23 @@ export default {
 .session-creation__details--text {
   width: 600px;
   padding-top: 10px;
+}
+.session-creation__create {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.session-creation__create--checkbox {
+  color: black;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+.session-creation__create--checkbox .v-label {
+  opacity: 1;
+}
+.session-creation__create--button {
+  font-weight: bold;
 }
 </style>

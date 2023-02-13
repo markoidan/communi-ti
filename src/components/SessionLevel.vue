@@ -1,8 +1,8 @@
 <template>
   <div class="session-level">
     <span>Level</span>
-    <v-chip-group mandatory selected-class="text-indigo-darken-2">
-      <v-chip v-for="tag in levels" :key="tag">
+    <v-chip-group mandatory selected-class="text-indigo-darken-2" @update:modelValue="updateLevel">
+      <v-chip v-for="tag in levels" :key="tag"  >
         {{ tag }}
       </v-chip>
     </v-chip-group>
@@ -17,6 +17,11 @@ export default {
       levels: ["Beginner", "Intermediate", "Advance"],
     };
   },
+  methods: {
+    updateLevel($event){
+      this.$emit('selectLevel', this.levels[$event])
+    }
+  }
 };
 </script>
 

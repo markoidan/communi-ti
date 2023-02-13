@@ -9,6 +9,7 @@
       :step="15"
       show-ticks="always"
       tick-size="4"
+      @update:modelValue="updateLength"
     >
     </v-slider>
   </div>
@@ -22,6 +23,11 @@ export default {
       length: [15, 30, 45, 60],
     };
   },
+  methods:{
+    updateLength($event){
+      this.$emit('selectLength', $event)
+    }
+  }
 };
 </script>
 
