@@ -148,17 +148,13 @@ export default {
   gap: 30px;
   height: calc(90vh);
 }
-.courses-container {
-  /* display: flex;
-  flex-direction: row; */
-}
 .course {
   /* overflow-y: scroll; */
   width: 350px;
   display: inline-block;
   margin: 20px;
   vertical-align: top;
-  height: 280px;
+  height: 240px;
 }
 .left {
   flex: 2;
