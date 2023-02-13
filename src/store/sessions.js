@@ -395,6 +395,39 @@ export const useSessionsStore = defineStore("sessions", {
         ],
       },
     ],
+    wishList: [
+      {
+        name: "Israeli History",
+        level: "Beginner",
+        category: "other",
+        likes: 5,
+        description: 'lll lll lll ll '
+      },
+      {
+        name: "Data Science",
+        level: "Beginner",
+        category: "tech",
+        likes: 4,
+      },
+      {
+        name: "Web Development",
+        level: "Advance",
+        category: "tech",
+        likes: 4,
+      },
+      {
+        name: "Nutrition and Diet",
+        level: "Beginner",
+        category: "other",
+        likes: 3,
+      },
+      {
+        name: "Creative Writing",
+        level: "Beginner",
+        category: "Creative",
+        likes: 1,
+      },
+    ],
   }),
   getters: {
     topCourses: (state) => {
@@ -402,6 +435,18 @@ export const useSessionsStore = defineStore("sessions", {
         (a, b) => b.attendees.length - a.attendees.length
       );
       return topValues.slice(0, 3);
+    },
+  },
+  actions: {
+    addSession(newSession) {
+      let max = 0;
+      this.openCourses.forEach((session) => {
+        if (session.id > max) {
+          max = session.id;
+        }
+      });
+      newSession.id = max++;
+      this.openCourses.push(newSession);
     },
   },
 });

@@ -42,6 +42,7 @@ export default {
 .filter-events-row {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  gap: 100px;
 }
 </style>

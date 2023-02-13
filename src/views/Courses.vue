@@ -1,8 +1,9 @@
 <template>
+  <CoursesHeader></CoursesHeader>
   <div class="courses">
     <div class="left">
-      <div class="title">Upcoming sessions</div>
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
+      <div class="title">Upcoming sessions</div>
       <div class="course">
         <div v-for="(course, index) in courses" :key="course.id">
           <CoursePreview
@@ -31,6 +32,7 @@
         <TopSessions class="top-sessions"></TopSessions>
       </div>
       <div class="wishlists">
+        <div class="title">Wish Lists</div>
         <WishLists></WishLists>
       </div>
     </div>
@@ -42,13 +44,20 @@ import CoursePreview from "@/components/CoursePreview.vue";
 import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import TopSessions from "@/components/TopSessions.vue";
 import WishLists from "@/components/WishLists.vue";
+import CoursesHeader from "@/components/Header.vue";
 import moment from "moment";
 import { mapState } from "pinia";
 import { useSessionsStore } from "@/store/sessions.js";
 
 export default {
   name: "CoursesView",
-  components: { CoursePreview, FilterEventsRow, TopSessions, WishLists },
+  components: {
+    CoursePreview,
+    FilterEventsRow,
+    TopSessions,
+    WishLists,
+    CoursesHeader,
+  },
   data() {
     return {
       categoryFilter: [],
@@ -138,6 +147,7 @@ export default {
   margin-left: 40px;
 }
 .right {
+  margin-top: 112px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -152,6 +162,7 @@ export default {
   padding: 40px;
 }
 .title {
+  text-align: left;
   margin: 20px 0;
   font-size: 20px;
   font-weight: bold;
