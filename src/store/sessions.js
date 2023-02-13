@@ -22,6 +22,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Automation Engineer",
         },
         date: "01/03/23 8:00",
+        time: "30",
         name: "Python",
         location: "Gordon",
         details:
@@ -41,9 +42,11 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Narkis Daniel",
           pictureUrl: "src/assets/Narkis.jpg",
+          description: "Software Engineer",
         },
         name: "Vue 3",
         date: "02/04/23 15:00",
+        time: "30",
         location: "Apolonoa",
         description:
           "Vue 3 is a popular JavaScript framework for building user interfaces, known for its reactivity, simplicity, and performance.",
@@ -69,9 +72,11 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Jenny Kolmanovitch",
           pictureUrl: "src/assets/jenny.jpg",
+          description: "Software Engineer",
         },
         name: "Product Marketing",
         date: "03/04/23 12:00",
+        time: "45",
         location: "Ein Gedi",
         description: "'Product Marketing: From Strategy to Launch'",
         details:
@@ -89,9 +94,11 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Idan Marko",
           pictureUrl: "src/assets/idan.jpg",
+          description: "Software Engineer",
         },
         name: "Admin 2.0",
         date: "04/05/23 9:00",
+        time: "60",
         location: "Sidny",
         description:
           "Admin 2.0 is a platform group product that enables payer registration, configuration, and various actions, making it a crucial tool for efficient management of new customers.",
@@ -110,15 +117,17 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Yoav Ben Azar",
           pictureUrl: "src/assets/yoav.jpg",
+          description: "Product Manager",
         },
         name: "Marketing Basics",
         date: "05/05/23 14:20",
+        time: "15",
         location: "Kalia",
         description:
           "Marketing is the process of creating, communicating, delivering, and exchanging offerings that have value for customers, clients, and society as a whole.",
         details:
           "Marketing is a critical aspect of any business and involves a wide range of activities aimed at creating, communicating, delivering, and exchanging offerings that have value for customers, clients, and society as a whole. In this course, you will learn the core principles of marketing, including market research, target audience identification, segmentation, positioning, and branding. They will also learn about different marketing channels, including digital marketing, advertising, public relations, and sales, and how to effectively use them to reach target audiences. Additionally, students will learn how to measure the success of marketing efforts and how to use data to make informed decisions. By the end of the course, you will have a solid understanding of marketing and be equipped to create effective marketing campaigns for a variety of products and services.",
-        category: "Marketing",
+        category: "marketing",
         level: "Intermediate",
         attendees: [
           { full_name: "Ava Smith" },
@@ -131,15 +140,17 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Sveta Osherov Gross",
           pictureUrl: "src/assets/sveta.jpg",
+          description: "UX Designer",
         },
         name: "Digital Marketing Strategy",
         date: "06/06/23 15:00",
+        time: "30",
         location: "Sphera",
         description:
           "'Digital Marketing Strategy' teaches students how to develop a comprehensive and data-driven digital marketing strategy, covering the latest trends and technologies in the industry.",
         details:
           "'Digital Marketing Strategy' In this course, students will dive deeper into the world of digital marketing and learn how to create a comprehensive digital marketing strategy. They will learn about the latest digital marketing trends and technologies, including social media marketing, content marketing, search engine optimization (SEO), email marketing, and more. The course will cover how to conduct market research, identify target audiences, and create buyer personas to guide digital marketing efforts. Additionally, students will learn how to measure the success of their digital marketing campaigns and make data-driven decisions to continuously improve their strategy. By the end of the course, students will have a deep understanding of digital marketing and be equipped to develop and execute a successful digital marketing strategy for their organization or clients.",
-        category: "Marketing",
+        category: "marketing",
         level: "Beginner",
         attendees: [
           { full_name: "Mia Anderson" },
@@ -152,15 +163,17 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Moshe Tikochinski",
           pictureUrl: "src/assets/moshe.jpg",
+          description: "Software Engineering Manager",
         },
         name: "Creative Basics",
         date: "07/07/23 16:00",
+        time: "30",
         location: "Castel",
         description:
           "Creative is a broad term that encompasses the use of imagination, original ideas, and artistic skills to produce unique and engaging content, designs, and products.",
         details:
           "'Creative' is a broad term that encompasses the use of imagination, original ideas, and artistic skills to produce unique and engaging content, designs, and products. In this course, students will learn how to tap into their creativity and develop their artistic skills to create compelling and original works. They will explore various creative disciplines, such as graphic design, illustration, photography, copywriting, and more, and learn how to effectively use these skills to communicate and express their ideas. Additionally, students will learn how to critique and analyze their own work, as well as the work of others, and use this knowledge to continuously improve their creative skills. By the end of the course, students will have a solid understanding of the creative process and be equipped to produce unique and engaging works that capture their imagination and ideas.",
-        category: "Creative",
+        category: "creative",
         level: "Advance",
         attendees: [
           { full_name: "Abigail Wilson" },
@@ -173,15 +186,17 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Niv Guetta",
           pictureUrl: "src/assets/niv.jpg",
+          description: "Software Engineer",
         },
         name: "Creative Storytelling",
         date: "01/07/23 17:00",
+        time: "45",
         location: "Dor",
         description:
           "'Creative Storytelling: From Concept to Screen' teaches students the art of storytelling through film, animation, or other visual mediums, covering the basics of pre-production, production, and post-production.",
         details:
           "'Creative Storytelling: From Concept to Screen' In this course, students will learn the art of creative storytelling and how to bring their stories to life through film, animation, or other visual mediums. They will learn how to develop a story concept, create compelling characters, and write a script that captures the essence of their story. Additionally, students will learn about the different elements of visual storytelling, such as shot selection, camera angles, and sound design, and how to effectively use these elements to bring their story to life. The course will cover the basics of pre-production, production, and post-production, and students will have the opportunity to work on their own projects and bring their stories to life through the medium of their choice. By the end of the course, students will have a deep understanding of creative storytelling and be equipped to develop and produce their own original works.",
-        category: "Beginner",
+        category: "creative",
         level: "Intermediate",
         attendees: [
           { full_name: "Natalie Lee" },
@@ -194,15 +209,17 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Sveta Osherov Gross",
           pictureUrl: "src/assets/sveta.jpg",
+          description: "UX Designer",
         },
         name: "Retiring at age 40",
         date: "09/07/23 18:00",
+        time: "30",
         location: "Arbel",
         description:
           "Retiring at age 40 is an ambitious goal that requires careful planning and financial management.",
         details:
           "Retiring at age 40 is an ambitious goal that requires careful planning and financial management. In this course, students will learn how to create a comprehensive retirement plan that will help them achieve their goal of retiring early. They will learn about different investment strategies, such as stocks, bonds, real estate, and more, and how to effectively allocate their assets to maximize returns and minimize risk. Additionally, students will learn about tax-efficient retirement planning, including the use of retirement accounts, such as 401(k)s and IRAs, and how to take advantage of government benefits, such as Social Security. The course will also cover budgeting, debt management, and other important financial topics that are essential for achieving financial independence. By the end of the course, students will have a solid understanding of the steps they need to take to retire at age 40 and be well on their way to achieving this goal.",
-        category: "Other",
+        category: "other",
         level: "Beginner",
         attendees: [
           { full_name: "Hannah Gonzalez" },
@@ -215,15 +232,17 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Daniel Litmanovich",
           pictureUrl: "src/assets/daniel.jpg",
+          description: "Automation Engineer",
         },
         name: "Parental Guidance",
         date: "03/08/23 11:00",
+        time: "60",
         location: "Carmel",
         description:
           "Parental guidance is an educational course that provides tools and strategies for parents to raise happy, healthy, and well-adjusted children.",
         details:
           "'Parental Guidance' is an educational course that provides tools and strategies for parents to raise happy, healthy, and well-adjusted children. The course covers various stages of a child's development, from infancy to adulthood, and provides guidance on how to navigate the unique challenges that each stage presents. Topics include child behavior and discipline, communication, nutrition and health, and academic and career planning. The course also covers issues such as building strong parent-child relationships, dealing with conflict, and fostering independence and self-esteem in children. Additionally, the course will provide information on resources and support systems available to parents, such as counseling services, community programs, and support groups. By the end of the course, parents will have a better understanding of how to raise confident and successful children and be equipped with the skills and knowledge they need to provide the best possible guidance and support to their children.",
-        category: "Other",
+        category: "other",
         level: "Beginner",
         attendees: [
           { full_name: "Avery Jones" },
@@ -236,9 +255,11 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Narkis Daniel",
           pictureUrl: "src/assets/Narkis.jpg",
+          description: "Software Engineer",
         },
         name: "How to Plan a Trip",
         date: "09/08/23 09:00",
+        time: "30",
         location: "Dov",
         description:
           "'How to Plan a Trip' is a course that teaches students the essential steps and tips for planning a successful and enjoyable trip.",
@@ -257,15 +278,17 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Jenny Kolmanovich",
           pictureUrl: "src/assets/jenny.jpg",
+          description: "Software Engineer",
         },
-        name: "Lattice Theory and Application",
+        name: "Lattice Theory",
         date: "01/09/23 8:00",
+        time: "30",
         location: "Golan",
         description:
           "'Lattice Theory and Applications' is a course that introduces students to the mathematical concept of lattices and their real-world applications.",
         details:
           "'Lattice Theory and Applications' is a course that introduces students to the mathematical concept of lattices and their real-world applications. Lattice theory is a branch of mathematics that studies partially ordered sets and the relationships between their elements. This course will cover the fundamental concepts and theories of lattice theory, including lattice operations, order properties, and modular lattices. Students will also learn about the applications of lattice theory, such as in computer science, cryptography, and other fields. The course will explore the use of lattice theory in solving practical problems, such as in coding theory, data compression, and information retrieval. Additionally, students will learn about the algorithms and software tools used in lattice theory, and will have the opportunity to work on hands-on projects to apply their knowledge and skills. By the end of the course, students will have a strong understanding of the theories and applications of lattice theory and be equipped with the knowledge and skills they need to further explore this fascinating field.",
-        category: "Beginner",
+        category: "hobbies",
         level: "Intermediate",
         attendees: [
           { full_name: "Isabella Davis" },
@@ -278,15 +301,17 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Yoav Ben Azar",
           pictureUrl: "src/assets/yoav.jpg",
+          description: "Product Manager",
         },
         name: "Female Empowerment",
         date: "09/09/23 8:00 ",
+        time: "15",
         location: "Meron",
         description:
           "'Female Empowerment' is a course that provides education and resources to promote gender equality and empower women.",
         details:
           "'Female Empowerment' is a course that provides education and resources to promote gender equality and empower women. The course covers a range of topics, including gender bias and discrimination, the history of women's rights, and the challenges faced by women in various fields and industries. Students will learn about the social, economic, and political factors that impact women's equality and empowerment and will receive practical strategies for advocating for women's rights and creating change. Additionally, the course will provide an overview of successful female empowerment initiatives and movements, and will explore the role of men in promoting gender equality. The course will also provide information on resources and support systems available to women, such as mentorship programs, community organizations, and advocacy groups. By the end of the course, students will have a deep understanding of the challenges faced by women and the strategies they can use to empower and support women in their communities and beyond.",
-        category: "Other",
+        category: "other",
         level: "Advance",
         attendees: [
           { full_name: "Emma Smith" },
@@ -299,15 +324,17 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Nir Kravetzky",
           pictureUrl: "src/assets/nir.jpg",
+          description: "Software Engineering Manager",
         },
         name: "Preventing Baby Colic",
         date: "09/07/23 8:00",
+        time: "45",
         location: "Ofir",
         description:
           "'Preventing Baby Colic' is a course that teaches parents and caretakers the causes and prevention strategies for baby colic.",
         details:
           "'Preventing Baby Colic' is a course that teaches parents and caretakers the causes and prevention strategies for baby colic. The course will cover the symptoms, causes, and treatments for baby colic, including dietary and environmental factors that can contribute to colic. Students will learn about the various strategies for preventing colic, such as proper feeding techniques, creating a calm and relaxing environment for the baby, and minimizing stress for both the baby and the parents. The course will also provide information on the different types of therapies and remedies that can help soothe colic, such as massage, aromatherapy, and more. Additionally, the course will address the challenges that come with caring for a colicky baby, such as sleep deprivation and stress, and will provide practical tips and advice for managing these challenges. By the end of the course, students will have a comprehensive understanding of baby colic and the strategies they can use to prevent and manage it.",
-        category: "Other",
+        category: "other",
         level: "Advance",
         attendees: [
           { full_name: "Noah Davis" },
@@ -320,9 +347,11 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Nir Kravetzky",
           pictureUrl: "src/assets/nir.jpg",
+          description: "Software Engineering Manager",
         },
         name: "Coralogix Log Management",
         date: "11/10/23 8:00",
+        time: "15",
         location: "Tavor",
         description:
           "'Coralogix Log Management' is a course that teaches how to use Coralogix for log management and analysis.",
@@ -343,9 +372,11 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Narkis Daniel",
           pictureUrl: "src/assets/Narkis.jpg",
+          description: "Software Engineer",
         },
         name: "Cooking",
         date: "13/01/23 8:00",
+        time: "60",
         location: "Apolonoa",
         description:
           "Cooking 101 is a comprehensive course that covers the fundamentals of cooking and baking. Students will learn the basics of kitchen safety, knife skills, and cooking techniques while creating delicious meals and baked goods.",
@@ -371,9 +402,11 @@ export const useSessionsStore = defineStore("sessions", {
         speaker: {
           name: "Jenny Kolmanovich",
           pictureUrl: "src/assets/jenny.jpg",
+          description: "Software Engineer",
         },
         name: "Russian",
         date: "02/02/23 8:00",
+        time: "30",
         location: "Apolonoa",
         description:
           "Learn Russian is a comprehensive course that will help students develop a strong foundation in the Russian language. From beginner to advanced, students will learn to read, write, and speak the language with confidence.",
@@ -395,40 +428,44 @@ export const useSessionsStore = defineStore("sessions", {
         ],
       },
     ],
-    wishList: [
-      {
-        name: "Israeli History",
-        level: "Beginner",
-        category: "other",
-        likes: 5,
-        description: 'lll lll lll ll '
-      },
-      {
-        name: "Data Science",
-        level: "Beginner",
-        category: "tech",
-        likes: 4,
-      },
-      {
-        name: "Web Development",
-        level: "Advance",
-        category: "tech",
-        likes: 4,
-      },
-      {
-        name: "Nutrition and Diet",
-        level: "Beginner",
-        category: "other",
-        likes: 3,
-      },
-      {
-        name: "Creative Writing",
-        level: "Beginner",
-        category: "Creative",
-        likes: 1,
-      },
-    ],
   }),
+  wishList: [
+    {
+      "name": "Israeli History",
+      "level": "Beginner",
+      "category": "other",
+      "description": "I am writing to express my interest in enrolling in your Israeli History course at the beginner level. I am eager to gain a comprehensive understanding of the key events, people, and themes in Israeli history and am confident that I will be able to contribute to the class discussions and activities.",
+      "likes": 5
+    },
+    {
+      "name": "Data Science",
+      "level": "Beginner",
+      "category": "tech",
+      "description": "I am writing to express my interest in enrolling in your Data Science course at the beginner level. I am eager to gain a comprehensive understanding of the fundamental concepts and techniques in data science, and I believe that your course would provide me with the perfect introduction to this exciting field.",
+      "likes": 4
+    },
+	{
+      "name": "Web Development",
+      "level": "Advance",
+      "category": "tech",
+      "description": "I am reaching out to inquire about enrolling in your Web Development course at the advanced level. I have prior experience in web development and I am eager to take my skills to the next level by learning about advanced techniques and technologies in this field. I believe that your course will provide me with the knowledge and hands-on experience I need to grow as a web developer.",
+      "likes": 4
+    },
+	{
+      "name": "Nutrition and Diet",
+      "level": "Beginner",
+      "category": "other",
+      "description": "I am reaching out to inquire about enrolling in your Nutrition and Diet course at the beginner level. I am interested in learning about the fundamental concepts and principles of healthy eating and nutrition, and I believe that your course would provide me with the foundation I need to pursue this interest further.",
+      "likes": 3
+    },
+	{
+      "name": "Creative Writing",
+      "level": "Beginner",
+      "category": "creative",
+      "description": "I am reaching out to inquire about enrolling in your Creative Writing course at the beginner level. I have always been interested in writing and storytelling, and I would like to develop my skills in this area. I believe that your course would provide me with the knowledge, techniques, and inspiration I need to bring my writing to the next level.",
+      "likes": 1
+    }
+  ],  
   getters: {
     topCourses: (state) => {
       const topValues = state.openCourses.sort(

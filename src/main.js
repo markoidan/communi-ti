@@ -7,11 +7,25 @@ import { createPinia } from "pinia";
 import "@vuepic/vue-datepicker/dist/main.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faThumbsUp, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import {
+  faThumbsUp,
+  faAngleDown,
+  faAngleUp,
+  faDesktop,
+  faGift,
+  faChessKnight,
+  faPalette,
+  faCommentDots,
+} from "@fortawesome/free-solid-svg-icons";
 loadFonts();
 library.add(faThumbsUp);
 library.add(faAngleDown);
 library.add(faAngleUp);
+library.add(faDesktop);
+library.add(faGift);
+library.add(faChessKnight);
+library.add(faPalette);
+library.add(faCommentDots);
 const app = createApp(App);
 const pinia = createPinia();
 app.use(router);

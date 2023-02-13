@@ -68,7 +68,7 @@
               cover
             ></v-img>
           </div>
-          <div class="content-session-time-length">30 min</div>
+          <div class="content-session-time-length">{{ course.time }}</div>
         </div>
         <div class="content-description">
           {{ course.description }}
