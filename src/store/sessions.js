@@ -43,7 +43,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/Narkis.jpg",
         },
         name: "Vue 3",
-        date: "02/04/23",
+        date: "02/04/23 15:00",
         location: "Apolonoa",
         description:
           "Vue 3 is a popular JavaScript framework for building user interfaces, known for its reactivity, simplicity, and performance.",
@@ -71,7 +71,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/jenny.jpg",
         },
         name: "Product Marketing",
-        date: "03/04/23",
+        date: "03/04/23 12:00",
         location: "Ein Gedi",
         description: "'Product Marketing: From Strategy to Launch'",
         details:
@@ -91,7 +91,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/idan.jpg",
         },
         name: "Admin 2.0",
-        date: "04/05/23",
+        date: "04/05/23 9:00",
         location: "Sidny",
         description:
           "Admin 2.0 is a platform group product that enables payer registration, configuration, and various actions, making it a crucial tool for efficient management of new customers.",
@@ -112,7 +112,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/yoav.jpg",
         },
         name: "Marketing Basics",
-        date: "05/05/23",
+        date: "05/05/23 14:20",
         location: "Kalia",
         description:
           "Marketing is the process of creating, communicating, delivering, and exchanging offerings that have value for customers, clients, and society as a whole.",
@@ -133,7 +133,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/sveta.jpg",
         },
         name: "Digital Marketing Strategy",
-        date: "06/06/23",
+        date: "06/06/23 15:00",
         location: "Sphera",
         description:
           "'Digital Marketing Strategy' teaches students how to develop a comprehensive and data-driven digital marketing strategy, covering the latest trends and technologies in the industry.",
@@ -154,7 +154,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/moshe.jpg",
         },
         name: "Creative Basics",
-        date: "07/07/23",
+        date: "07/07/23 16:00",
         location: "Castel",
         description:
           "Creative is a broad term that encompasses the use of imagination, original ideas, and artistic skills to produce unique and engaging content, designs, and products.",
@@ -175,7 +175,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/niv.jpg",
         },
         name: "Creative Storytelling",
-        date: "01/07/23",
+        date: "01/07/23 17:00",
         location: "Dor",
         description:
           "'Creative Storytelling: From Concept to Screen' teaches students the art of storytelling through film, animation, or other visual mediums, covering the basics of pre-production, production, and post-production.",
@@ -196,7 +196,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/sveta.jpg",
         },
         name: "Retiring at age 40",
-        date: "09/07/23",
+        date: "09/07/23 18:00",
         location: "Arbel",
         description:
           "Retiring at age 40 is an ambitious goal that requires careful planning and financial management.",
@@ -217,7 +217,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/daniel.jpg",
         },
         name: "Parental Guidance",
-        date: "03/08/23",
+        date: "03/08/23 11:00",
         location: "Carmel",
         description:
           "Parental guidance is an educational course that provides tools and strategies for parents to raise happy, healthy, and well-adjusted children.",
@@ -238,7 +238,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/Narkis.jpg",
         },
         name: "How to Plan a Trip",
-        date: "09/08/23",
+        date: "09/08/23 09:00",
         location: "Dov",
         description:
           "'How to Plan a Trip' is a course that teaches students the essential steps and tips for planning a successful and enjoyable trip.",
@@ -259,7 +259,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/jenny.jpg",
         },
         name: "Lattice Theory and Application",
-        date: "01/09/23",
+        date: "01/09/23 8:00",
         location: "Golan",
         description:
           "'Lattice Theory and Applications' is a course that introduces students to the mathematical concept of lattices and their real-world applications.",
@@ -280,7 +280,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/yoav.jpg",
         },
         name: "Female Empowerment",
-        date: "09/09/23",
+        date: "09/09/23 8:00 ",
         location: "Meron",
         description:
           "'Female Empowerment' is a course that provides education and resources to promote gender equality and empower women.",
@@ -301,7 +301,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/nir.jpg",
         },
         name: "Preventing Baby Colic",
-        date: "09/07/23",
+        date: "09/07/23 8:00",
         location: "Ofir",
         description:
           "'Preventing Baby Colic' is a course that teaches parents and caretakers the causes and prevention strategies for baby colic.",
@@ -322,7 +322,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/nir.jpg",
         },
         name: "Coralogix Log Management",
-        date: "11/10/23",
+        date: "11/10/23 8:00",
         location: "Tavor",
         description:
           "'Coralogix Log Management' is a course that teaches how to use Coralogix for log management and analysis.",
@@ -345,7 +345,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/Narkis.jpg",
         },
         name: "Cooking",
-        date: "13/01/23",
+        date: "13/01/23 8:00",
         location: "Apolonoa",
         description:
           "Cooking 101 is a comprehensive course that covers the fundamentals of cooking and baking. Students will learn the basics of kitchen safety, knife skills, and cooking techniques while creating delicious meals and baked goods.",
@@ -373,7 +373,7 @@ export const useSessionsStore = defineStore("sessions", {
           pictureUrl: "src/assets/jenny.jpg",
         },
         name: "Russian",
-        date: "02/02/23",
+        date: "02/02/23 8:00",
         location: "Apolonoa",
         description:
           "Learn Russian is a comprehensive course that will help students develop a strong foundation in the Russian language. From beginner to advanced, students will learn to read, write, and speak the language with confidence.",

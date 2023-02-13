@@ -1,29 +1,92 @@
 <template>
-  <div>
-    <div class="d-flex align-center flex-column" v-if="course?.speaker">
-      <SpeakerMetadata
-        class="avatar"
-        :speaker="course.speaker"
-        :iconSize="42"
-        isSmallSize:true
-      ></SpeakerMetadata>
-      <v-card
-        width="1000"
-        title="Details"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      ></v-card>
-    </div>
-    <v-banner lines="two">
-      <template v-slot:text>
-        <div>TUE, FEB 14 · 3:00 AM IST</div>
-        <div>Spanish Practice Session for All Levels</div>
-      </template>
+  <div class="course-view">
+    <div>
+      <div class="course-view-header">
+        <div>
+          <v-btn
+            prepend-icon="mdi-arrow-left"
+            variant="text"
+            @click="$router.go(-1)"
+          >
+            Back
+          </v-btn>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <div>
+            <v-img
+              :width="30"
+              src="../../src/assets/sessionYellow.svg"
+              cover
+            ></v-img>
+          </div>
+          <div class="course-view-header-text">{{ course.name }}</div>
+          <div style="flex: 1; text-align: right">
+            <v-chip :color="levelColor"> {{ course.level }} </v-chip>
+          </div>
+        </div>
+      </div>
+      <div class="course-view-location-time">
+        <div style="margin-right: 8px">
+          <v-img :width="14" src="../../src/assets/calendar.svg" cover></v-img>
+        </div>
+        <div class="course-view-header-date" style="margin-right: 34px">
+          {{ course.date }}
+        </div>
+        <div class="course-view-header-date" style="margin-right: 34px">|</div>
+        <div style="margin-right: 8px">
+          <v-img :width="14" src="../../src/assets/location.svg" cover></v-img>
+        </div>
+        <div class="course-view-header-date">{{ course.location }}</div>
+      </div>
 
-      <template v-slot:actions>
-        <v-btn color="deep-purple-accent-4"> Share </v-btn>
-        <v-btn color="deep-purple-accent-4"> Attend online </v-btn>
-      </template>
-    </v-banner>
+      <v-divider
+        style="width: 80%; margin: auto; margin-bottom: 42px"
+      ></v-divider>
+
+      <div class="course-view-content">
+        <SpeakerMetadata
+          class="avatar"
+          :speaker="course.speaker"
+          :iconSize="42"
+          isSmallSize:true
+        ></SpeakerMetadata>
+        <div class="content-about-name">About {{ course?.speaker?.name }}</div>
+        <div class="content-about-data">
+          Typography is the art and technique of arranging type to make written
+          language legible, readable and appealing when displayed (Wikipedia).
+          It refers to choosing type face, font size, color, spaces between text
+          blocks / lines / letters. Having a good typography is essential for
+          helping users read content effortlessly by creating hierarchies and by
+          organising pages properly. Good typography increases usability.
+        </div>
+        <div class="content-session-details">Session details</div>
+        <div class="content-session-time">
+          <div>
+            <v-img
+              :width="14"
+              src="../../src/assets/timeBack.svg"
+              cover
+            ></v-img>
+          </div>
+          <div class="content-session-time-length">30 min</div>
+        </div>
+        <div class="content-description">
+          {{ course.description }}
+        </div>
+      </div>
+
+      <v-banner lines="two">
+        <template v-slot:text>
+          <div>TUE, FEB 14 · 3:00 AM IST</div>
+          <div>Spanish Practice Session for All Levels</div>
+        </template>
+
+        <template v-slot:actions>
+          <v-btn color="deep-purple-accent-4"> Share </v-btn>
+          <v-btn color="deep-purple-accent-4"> Attend online </v-btn>
+        </template>
+      </v-banner>
+    </div>
   </div>
 </template>
 <script>
@@ -41,6 +104,24 @@ export default {
   },
   computed: {
     ...mapState(useSessionsStore, ["openCourses"]),
+    levelColor() {
+      let color = "";
+      switch (this.course.level) {
+        case "Beginner": {
+          color = "#BFF3E0";
+          break;
+        }
+        case "Intermediate": {
+          color = "blue";
+          break;
+        }
+        case "Advance": {
+          color = "red";
+          break;
+        }
+      }
+      return color;
+    },
   },
   mounted() {
     this.course = this.openCourses.filter((a) => {
@@ -49,4 +130,88 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+.course-view {
+  display: flex;
+  flex-direction: column;
+}
+.course-view-header {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.course-view-header-text {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
+.course-view-location-time {
+  width: 400px;
+  margin: auto;
+  margin-top: 12px;
+  line-height: 12px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-bottom: 42px;
+}
+.course-view-header-date {
+  line-height: 12px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+.course-view-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 43px;
+  width: 400px;
+  margin: auto;
+}
+.content-about-name {
+  margin-top: 18px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+.content-about-data {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+.content-session-details {
+  margin-top: 48px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+.content-session-time {
+  margin-top: 1px;
+  display: flex;
+  gap: 8px;
+}
+.content-session-time-length {
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #7a7a7a;
+}
+.content-description {
+  margin-top: 10px;
+}
+</style>

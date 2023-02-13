@@ -1,9 +1,10 @@
 <template>
   <div class="preview">
+    <div>Session name</div>
     <div class="date">{{ course.date }}</div>
     <div class="name">{{ course.name }}</div>
     <div class="description">{{ course.description }}</div>
-    SpeakerMetadata<SpeakerMetadata
+    <SpeakerMetadata
       class="avatar"
       :speaker="course.speaker"
       :iconSize="42"
