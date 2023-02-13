@@ -17,7 +17,7 @@
         "pictureUrl": "src/assets/avatar.png",
         "description": "Automation Engineer"
       },
-      "date": "01/03/23 16:00",
+      "date": "01/03/23 8:00",
       "name": "Python",
       "location": "Gordon",
       "details": "This course will provide you with a comprehensive introduction to the Python programming language. They will learn the basics of Python syntax and programming concepts, including data types, variables, control structures, functions, and modules. The course will also cover the use of Python in various application domains such as web development, scientific computing, data analysis, artificial intelligence, and more. Students will learn how to work with the standard library and third-party libraries, including NumPy and Pandas. The course will also cover best practices for writing and debugging Python code, as well as how to design and structure larger Python projects. By the end of the course, students will have a solid foundation in Python and be able to apply their knowledge to real-world projects.",
@@ -307,34 +307,56 @@
   ],
   "closedCourses": [
     {
-      "description": "This is a short description",
-      "id": 1,
+      "id": 16,
       "speaker": {
-        "name": "Ori pearl",
-        "pictureUrl": "src/assets/avatar.png",
-        "description": "I am so cool"
+        "name": "Narkis Daniel",
+        "pictureUrl": "src/assets/avatar.png"
       },
-      "date": "THU,FEB 16",
-      "name": "Coralogix",
-      "location": "room",
-      "details": "information about the lecture",
-      "category": "tech",
-      "attendees": []
+      "name": "Cooking",
+      "date": "13/01/23",
+      "location": "Apolonoa",
+      "description": "Cooking 101 is a comprehensive course that covers the fundamentals of cooking and baking. Students will learn the basics of kitchen safety, knife skills, and cooking techniques while creating delicious meals and baked goods.",
+      "details": "Cooking 101 is a beginner-friendly course that covers the basics of cooking and baking. Students will learn about kitchen safety, including food storage and preparation, as well as essential knife skills and cooking techniques. The course covers a range of cuisines and cooking styles, including baking, roasting, sautéing, and more. Students will learn how to use recipes to create delicious meals and baked goods, and how to adjust recipes to meet their dietary needs and preferences. Throughout the course, students will practice their skills by creating meals and baked goods in a virtual kitchen, and receive feedback from instructors and peers. Whether you are a complete beginner or simply looking to improve your cooking skills, Cooking 101 is the perfect place to start.",
+      "category": "Hobbies",
+      "level": "Beginner",
+      "attendees": [
+        { "full_name": "John Doe" },
+        { "full_name": "Jane Smith" },
+        { "full_name": "Bob Johnson" },
+        { "full_name": "Emma Brown" },
+        { "full_name": "Michael Williams" },
+        { "full_name": "Emily Davis" },
+        { "full_name": "William Taylor" },
+        { "full_name": "Daniel Wilson" },
+        { "full_name": "Sophia Lee" },
+        { "full_name": "James Martinez" }
+      ]
     },
     {
-      "description": "This is a short description",
-      "id": 32,
+      "id": 17,
       "speaker": {
-        "name": "Ori pearl",
-        "pictureUrl": "src/assets/avatar.png",
-        "description": "I am so cool"
+        "name": "Jenny Kolmanovich",
+        "pictureUrl": "src/assets/avatar.png"
       },
-      "date": "THU,FEB 16",
-      "name": "Coralogix",
-      "location": "room",
-      "details": "information about the lecture",
-      "category": "tech",
-      "attendees": []
+      "name": "Russian",
+      "date": "02/02/23",
+      "location": "Apolonoa",
+      "description": "Learn Russian is a comprehensive course that will help students develop a strong foundation in the Russian language. From beginner to advanced, students will learn to read, write, and speak the language with confidence.",
+      "details": "The Learn Russian course is designed for students of all levels, from complete beginners to those who have some prior knowledge of the language. The course covers all essential aspects of the language, including grammar, vocabulary, pronunciation, and conversational skills. Students will learn to read and write in the Cyrillic alphabet and develop their listening and speaking skills through interactive activities and discussions. The course also includes practical exercises and real-life scenarios to help students apply their newfound knowledge in real-world situations. Whether you are a student, a traveler, or simply interested in learning a new language, this course will provide you with the skills and confidence you need to communicate effectively in Russian.",
+      "category": "Other",
+      "level": "Beginner",
+      "attendees": [
+        { "full_name": "John Doe" },
+        { "full_name": "Jane Smith" },
+        { "full_name": "Bob Johnson" },
+        { "full_name": "Emma Brown" },
+        { "full_name": "Michael Williams" },
+        { "full_name": "Emily Davis" },
+        { "full_name": "William Taylor" },
+        { "full_name": "Daniel Wilson" },
+        { "full_name": "Sophia Lee" },
+        { "full_name": "James Martinez" }
+      ]
     }
   ]
 }

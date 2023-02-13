@@ -2,7 +2,7 @@
   <div class="courses">
     <div class="left">
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
-      <div class="title">Active courses</div>
+      <div class="title">Upcoming sessions</div>
       <div v-for="(course, index) in courses" :key="course.id">
         <CoursePreview
           :course="course"
@@ -13,7 +13,7 @@
           v-if="index != courses.length - 1"
         ></v-divider>
       </div>
-      <div class="title">Closed courses</div>
+      <div class="title">Closed sessions</div>
       <div v-for="closedCourse in closedCourses" :key="closedCourse.id">
         <CoursePreview :course="closedCourse"></CoursePreview>
         <v-divider
