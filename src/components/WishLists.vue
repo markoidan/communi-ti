@@ -18,7 +18,7 @@
       <span class="wish-list-item"
         ><CourseCategory :category="item.category"></CourseCategory
       ></span>
-      <span @click.prevent="like(item)"
+      <span style="cursor: pointer" @click.prevent="like(item)"
         ><font-awesome-icon icon="fa-solid fa-thumbs-up" />
         {{ item.likes }}</span
       >
