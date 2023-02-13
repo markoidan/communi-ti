@@ -1,6 +1,6 @@
 <template>
   <div class="courses">
-    <h1>Courses 1</h1>
+    <filter-events-row></filter-events-row>
     <div v-for="course in courses" :key="course.id">
       <CoursePreview @click="redirect(course)" :course="course"></CoursePreview>
       <v-divider class="divider"></v-divider>
@@ -10,11 +10,12 @@
 
 <script>
 import CoursePreview from "../components/CoursePreview.vue";
+import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import jsonData from "../data.json";
 import router from "@/router";
 export default {
   name: "CoursesView",
-  components: { CoursePreview },
+  components: { CoursePreview, FilterEventsRow },
   data() {
     return {};
   },
