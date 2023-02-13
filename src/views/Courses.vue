@@ -20,13 +20,18 @@
             @click="redirect(course)"
           ></CoursePreview>
         </div>
-        <div class="title">Closed sessions</div>
+      </div>
+      <div class="title">Closed sessions</div>
+      <div class="courses-container">
         <div
           v-for="closedCourse in completedCourses"
           :key="closedCourse.id"
           class="course"
         >
-          <CoursePreview :course="closedCourse"></CoursePreview>
+          <CoursePreview
+            :course="closedCourse"
+            :isClosed="true"
+          ></CoursePreview>
         </div>
       </div>
     </div>
@@ -148,17 +153,26 @@ export default {
   gap: 30px;
   height: calc(90vh);
 }
+.courses-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+}
 .course {
   /* overflow-y: scroll; */
-  width: 350px;
-  display: inline-block;
-  margin: 20px;
+  width: 330px;
+  /* display: inline-block; */
+  padding: 20px 20px;
   vertical-align: top;
-  height: 240px;
+}
+.course:hover {
+  background-color: #f0f5ff;
 }
 .left {
   flex: 2;
-  margin-left: 40px;
+  margin: 0 40px;
 }
 .right {
   flex: 1;
@@ -176,8 +190,5 @@ export default {
   margin: 20px 0;
   font-size: 20px;
   font-weight: bold;
-}
-.session:hover {
-  background-color: #f0f5ff;
 }
 </style>

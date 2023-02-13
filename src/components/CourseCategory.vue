@@ -1,5 +1,5 @@
 <template>
-  <div class="category-icon" :class="category">
+  <div class="category-icon" :class="category" :style="{ width, height }">
     <div class="icon-inner">
       <font-awesome-icon icon="fa-solid fa-desktop" v-if="category == 'tech'" />
       <font-awesome-icon icon="fa-solid fa-gift" v-if="category == 'product'" />
@@ -10,7 +10,7 @@
         icon="fa-chess-knight"
         v-if="category == 'marketing'"
       />
-      <span style="padding-left:7px">{{ category }}</span>
+      <span v-if="withText" style="padding-left: 7px">{{ category }}</span>
     </div>
   </div>
 </template>
@@ -21,19 +21,24 @@ export default {
   name: "CourseCategory",
   props: {
     category: String,
+    withText: Boolean,
+    width: String,
+    height: String,
   },
   components: { FontAwesomeIcon },
 };
 </script>
 <style scoped>
 .category-icon {
-  border-radius: 30px;
+  border-radius: 3px;
   text-align: center;
-  width: 120px;
+  vertical-align: middle;
+  padding: 0 10px;
   display: inline-block;
 }
 .icon-inner {
   font-size: 14px;
+  margin-top: 3px;
 }
 .tech {
   background-color: #ffefc1;

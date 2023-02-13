@@ -16,6 +16,9 @@ import {
   faChessKnight,
   faPalette,
   faCommentDots,
+  faPerson,
+  faUserTie,
+  faCirclePlay,
 } from "@fortawesome/free-solid-svg-icons";
 loadFonts();
 library.add(faThumbsUp);
@@ -26,6 +29,9 @@ library.add(faGift);
 library.add(faChessKnight);
 library.add(faPalette);
 library.add(faCommentDots);
+library.add(faPerson);
+library.add(faUserTie);
+library.add(faCirclePlay);
 const app = createApp(App);
 const pinia = createPinia();
 app.use(router);

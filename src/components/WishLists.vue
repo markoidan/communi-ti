@@ -14,9 +14,16 @@
         />
       </span>
       <span class="wish-list-name">{{ item.name }}</span>
-      <span class="wish-list-item"> {{ item.level }}</span>
       <span class="wish-list-item"
-        ><CourseCategory :category="item.category"></CourseCategory
+        ><CourseLevel :level="item.level"></CourseLevel
+      ></span>
+      <span class="wish-list-item"
+        ><CourseCategory
+          :category="item.category"
+          :withText="true"
+          width="100px"
+          height="30px"
+        ></CourseCategory
       ></span>
       <span style="cursor: pointer" @click.prevent="like(item)"
         ><font-awesome-icon icon="fa-solid fa-thumbs-up" />
@@ -34,9 +41,10 @@
 import { useSessionsStore } from "@/store/sessions.js";
 import { mapState } from "pinia";
 import CourseCategory from "@/components/CourseCategory.vue";
+import CourseLevel from "@/components/CourseLevel.vue";
 export default {
   name: "WishLists",
-  components: { CourseCategory },
+  components: { CourseCategory, CourseLevel },
   computed: {
     ...mapState(useSessionsStore, ["wishList"]),
   },

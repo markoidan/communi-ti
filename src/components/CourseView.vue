@@ -3,16 +3,13 @@
     <div>
       <div class="course-view-header">
         <div style="display: flex; gap: 8px">
-          <div>
-            <v-img
-              :width="30"
-              src="../../src/assets/sessionYellow.svg"
-              cover
-            ></v-img>
-          </div>
+          <CourseCategory
+            :category="course.category"
+            :withText="false"
+          ></CourseCategory>
           <div class="course-view-header-text">{{ course.name }}</div>
           <div style="flex: 1; text-align: right">
-            <v-chip :color="levelColor"> {{ course.level }} </v-chip>
+            <CourseLevel :level="course.level"></CourseLevel>
           </div>
         </div>
       </div>
@@ -82,12 +79,14 @@
 </template>
 <script>
 import SpeakerMetadata from "@/components/SpeakerMetadata.vue";
+import CourseCategory from "./CourseCategory.vue";
+import CourseLevel from "./CourseLevel.vue";
 import { mapState } from "pinia";
 import { useSessionsStore } from "@/store/sessions.js";
 
 export default {
   name: "CourseView",
-  components: { SpeakerMetadata },
+  components: { SpeakerMetadata, CourseCategory, CourseLevel },
   data() {
     return {
       course: {},

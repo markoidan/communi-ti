@@ -2,6 +2,7 @@
   <div v-if="topCourses" class="top-course">
     <div v-for="(course, index) in topCourses" :key="course.id">
       <span style="padding: 3px 10px">
+
         <font-awesome-icon
           icon="fa-solid fa-angle-down"
           @click="course.isOpen = !course.isOpen"
@@ -19,7 +20,9 @@
         class="avatar"
       ></v-avatar>
       <span>{{ course.name }}</span>
-      <div v-if="course.isOpen" class="description">{{ course.description }}</div>
+      <div v-if="course.isOpen" class="description">
+        {{ course.description }}
+      </div>
       <v-divider
         class="divider"
         v-if="index != topCourses.length - 1"

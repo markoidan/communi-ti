@@ -11,24 +11,40 @@
 
     <div class="name">
       <span>{{ course.name }}</span>
-      <CourseCategory :category="course.category"></CourseCategory>
     </div>
-    <div class="date">{{ course.date }}</div>
-    <div class="description">{{ course.description }}</div>
+    <div class="date">
+      {{ course.date }}
+      <span style="margin-left: 10px">
+        <font-awesome-icon icon="fa-user-tie" />
+        {{ course.attendees.length }}
+      </span>
+    </div>
+
+    <div class="properties">
+      <CourseLevel :level="course.level"></CourseLevel>
+      <CourseCategory
+        :category="course.category"
+        :withText="true"
+      ></CourseCategory>
+    </div>
+    <!-- <div class="description">{{ course.description }}</div> -->
   </div>
 </template>
 
 <script>
 import SpeakerMetadata from "./SpeakerMetadata.vue";
 import CourseCategory from "./CourseCategory.vue";
+import CourseLevel from "./CourseLevel.vue";
 export default {
   name: "CoursePreview",
   props: {
     course: Object,
+    isClosed: Boolean,
   },
   components: {
     SpeakerMetadata,
     CourseCategory,
+    CourseLevel,
   },
   mounted() {},
 };
@@ -36,6 +52,14 @@ export default {
 
 <style scoped>
 .preview {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.properties {
+  display: flex;
+  flex-direction: "row";
+  gap: 10px;
 }
 .date {
   font-size: 14px;
@@ -45,17 +69,11 @@ export default {
 .name {
   font-weight: bold;
   font-size: 18px;
-  line-height: 24px;
 }
 .name span {
   margin-right: 10px;
 }
 .description {
-  padding-bottom: 10px;
   color: grey;
-  line-height: 20px;
-}
-.avatar {
-  margin-bottom: 20px;
 }
 </style>
