@@ -142,10 +142,8 @@ export default {
   flex-direction: column;
 }
 .top-sessions {
-  height: 50%;
   margin: 10px;
   flex: 1;
-  overflow-y: scroll;
 }
 .wishlists {
   height: 50%;
