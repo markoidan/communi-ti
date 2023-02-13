@@ -1,15 +1,14 @@
 <template>
-  <div class="course-preview">    
-  </div>
+  <div class="preview">Hello 1</div>
 </template>
 
 <script>
 export default {
   name: "CoursePreview",
-  props: {
-    msg: String,
-  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.preview {
+  }
+</style>
