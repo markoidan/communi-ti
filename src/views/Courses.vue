@@ -113,7 +113,9 @@ export default {
 }
 .top-sessions {
   height: 50%;
-  margin: 40px;
+  margin: 10px;
+  flex: 1;
+  overflow-y: scroll;
 }
 .wishlists {
   height: 50%;
@@ -126,9 +128,5 @@ export default {
   margin: 20px 0;
   font-size: 20px;
   font-weight: bold;
-}
-.top-sessions {
-  flex: 1;
-  overflow-y: scroll;
 }
 </style>

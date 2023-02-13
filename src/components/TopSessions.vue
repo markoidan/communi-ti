@@ -1,6 +1,6 @@
 <template>
   <div v-if="topCourses">
-    <div>Top sessions</div>
+    <div class="title">Top sessions</div>
     <div v-for="(course, index) in topCourses" :key="course.id">
       <CoursePreview :course="course" @click="redirect(course)"></CoursePreview>
       <v-divider
@@ -27,3 +27,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.title {
+  margin: 20px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+</style>
