@@ -2,36 +2,35 @@
   <div class="filter-events-row">
     <filter-events
       @filter-changed="filterChanged"
-      label="Category"
+      label="categoryFilter"
       :items="['tech', 'product', 'marketing', 'creative', 'hobbies', 'other']"
     ></filter-events>
     <filter-events
       @filter-changed="filterChanged"
-      label="Level"
+      label="levelFilter"
       :items="['Beginner', 'Intermediate', 'Advance']"
     ></filter-events>
-    <Datepicker
-      placeholder="Select Date"
-      v-model="date"
-      range
-      input-class-name="dp-custom-input"
-    ></Datepicker>
+
+    <filter-events-date
+      @filter-changed="filterChanged"
+      label="dateFilter"
+    ></filter-events-date>
   </div>
 </template>
 
 <script>
 import FilterEvents from "@/components/FilterEvents.vue";
-import Datepicker from "@vuepic/vue-datepicker";
-import "@vuepic/vue-datepicker/dist/main.css";
+import FilterEventsDate from "@/components/FilterEventsDate.vue";
+
 export default {
   name: "FilterEventsRow",
-  components: { FilterEvents, Datepicker },
+  components: { FilterEvents, FilterEventsDate },
   data: () => ({
     date: null,
   }),
   methods: {
     filterChanged(selectedItems) {
-      console.log(selectedItems);
+      this.$emit("filterChanged", selectedItems);
     },
   },
 };
