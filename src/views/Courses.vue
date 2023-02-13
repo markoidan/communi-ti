@@ -1,6 +1,5 @@
 <template>
   <div class="courses">
-    <h1>Courses 1</h1>
     <div v-for="course in courses" :key="course.id">
       <CoursePreview :course="course"></CoursePreview>
       <v-divider class="divider"></v-divider>
