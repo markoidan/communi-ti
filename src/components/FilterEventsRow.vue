@@ -42,8 +42,4 @@ export default {
   flex-direction: row;
   justify-content: space-evenly;
 }
-.dp-custom-input {
-  border: none;
-  border-bottom: 1px solid #ababab;
-}
 </style>

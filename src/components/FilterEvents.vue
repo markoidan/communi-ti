@@ -3,7 +3,6 @@
     <v-select
       v-model="selectedItems"
       class="course-filter"
-      clearable
       chips
       :label="label"
       :items="items"

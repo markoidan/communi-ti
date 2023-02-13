@@ -1,6 +1,7 @@
 <template>
   <div class="filter-events">
     <Datepicker
+      class="date-picker"
       placeholder="Select Date"
       v-model="date"
       range
@@ -33,5 +34,14 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+}
+.dp-custom-input {
+  border: none;
+}
+.dp__input_wrap {
+  border-bottom: 1px solid #ababab;
+}
+.date-picker {
+  margin-top: 11px;
 }
 </style>
