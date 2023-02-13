@@ -4,6 +4,7 @@
     <div class="name">{{ course.name }}</div>
     <div class="description">{{ course.description }}</div>
     <SpeakerMetadata
+      class="avatar"
       :speaker="course.speaker"
       :iconSize="42"
       isSmallSize:true
@@ -45,5 +46,8 @@ export default {
   padding-bottom: 10px;
   color: grey;
   line-height: 20px;
+}
+.avatar {
+  margin-bottom: 20px;
 }
 </style>

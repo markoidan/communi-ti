@@ -1,30 +1,33 @@
 <template>
   <div class="courses">
     <div class="left">
+      <div class="title">Upcoming sessions</div>
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
-      <div class="title">Active courses</div>
-      <div v-for="(course, index) in courses" :key="course.id">
-        <CoursePreview
-          :course="course"
-          @click="redirect(course)"
-        ></CoursePreview>
-        <v-divider
-          class="divider"
-          v-if="index != courses.length - 1"
-        ></v-divider>
-      </div>
-      <div class="title">Closed courses</div>
-      <div v-for="closedCourse in closedCourses" :key="closedCourse.id">
-        <CoursePreview :course="closedCourse"></CoursePreview>
-        <v-divider
-          class="divider"
-          v-if="index != closedCourses.length - 1"
-        ></v-divider>
+      <div class="course">
+        <div v-for="(course, index) in courses" :key="course.id">
+          <CoursePreview
+            :course="course"
+            @click="redirect(course)"
+          ></CoursePreview>
+          <v-divider
+            class="divider"
+            v-if="index != courses.length - 1"
+          ></v-divider>
+        </div>
+        <div class="title">Closed sessions</div>
+        <div v-for="closedCourse in completedCourses" :key="closedCourse.id">
+          <CoursePreview :course="closedCourse"></CoursePreview>
+          <v-divider
+            class="divider"
+            v-if="index != closedCourses.length - 1"
+          ></v-divider>
+        </div>
       </div>
     </div>
     <div class="right">
-      <div class="top-sessions">
-        <TopSessions></TopSessions>
+      <div>
+        <div class="title">Top sessions</div>
+        <TopSessions class="top-sessions"></TopSessions>
       </div>
       <div class="wishlists">
         <WishLists></WishLists>
@@ -38,8 +41,9 @@ import CoursePreview from "@/components/CoursePreview.vue";
 import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import TopSessions from "@/components/TopSessions.vue";
 import WishLists from "@/components/WishLists.vue";
-import jsonData from "../data.json";
 import moment from "moment";
+import { mapState } from "pinia";
+import { useSessionsStore } from "@/store/sessions.js";
 
 export default {
   name: "CoursesView",
@@ -53,8 +57,29 @@ export default {
   },
 
   computed: {
-    closedCourses() {
-      return jsonData.closedCourses;
+    ...mapState(useSessionsStore, ["closedCourses", "openCourses"]),
+    completedCourses() {
+      let startDate = null;
+      let endDate = null;
+      return this.closedCourses.filter((a) => {
+        const compareDate = moment(a.date, "DD/MM/YYYY");
+        let isDateBetween = true;
+        if (startDate && endDate) {
+          isDateBetween = compareDate.isBetween(startDate, endDate);
+        }
+
+        if (
+          (this.categoryFilter.length == 0 ||
+            this.categoryFilter.indexOf(a.category) > -1) &&
+          (this.levelFilter.length == 0 ||
+            this.levelFilter.indexOf(a.levelFilter) > -1) &&
+          isDateBetween
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      });
     },
     courses() {
       let startDate = null;
@@ -64,7 +89,7 @@ export default {
         endDate = moment(this.dateFilter[1]);
       }
 
-      return jsonData.courses.filter((a) => {
+      return this.openCourses.filter((a) => {
         const compareDate = moment(a.date, "DD/MM/YYYY");
         let isDateBetween = true;
         if (startDate && endDate) {
@@ -101,9 +126,14 @@ export default {
   flex-direction: row;
   height: calc(95vh);
 }
-.left {
-  flex: 2;
+.course {
   overflow-y: scroll;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+
   margin-left: 40px;
 }
 .right {
@@ -112,21 +142,20 @@ export default {
   flex-direction: column;
 }
 .top-sessions {
-  height: 50%;
   margin: 10px;
   flex: 1;
-  overflow-y: scroll;
 }
 .wishlists {
   height: 50%;
-  margin: 40px;
-}
-.divider {
-  margin: 20px 0;
+  padding: 40px;
 }
 .title {
+  text-align: center;
   margin: 20px 0;
   font-size: 20px;
   font-weight: bold;
+}
+.session:hover {
+  background-color: #f0f5ff;
 }
 </style>

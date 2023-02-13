@@ -25,7 +25,9 @@
 </template>
 <script>
 import SpeakerMetadata from "@/components/SpeakerMetadata.vue";
-import jsonData from "../data.json";
+import { mapState } from "pinia";
+import { useSessionsStore } from "@/store/sessions.js";
+
 export default {
   name: "CourseView",
   components: { SpeakerMetadata },
@@ -34,8 +36,11 @@ export default {
       course: {},
     };
   },
+  computed: {
+    ...mapState(useSessionsStore, ["openCourses"]),
+  },
   mounted() {
-    this.course = jsonData.courses.filter((a) => {
+    this.course = this.openCourses.filter((a) => {
       return a.id == this.$route.params.id;
     })[0];
   },
