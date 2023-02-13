@@ -1,6 +1,6 @@
 <template>
   <div class="courses">
-    <filter-events-row></filter-events-row>
+    <filter-events-row @filter-changed="filterChanged"></filter-events-row>
     <div v-for="course in courses" :key="course.id">
       <CoursePreview :course="course"></CoursePreview>
       <v-divider class="divider"></v-divider>
@@ -12,15 +12,52 @@
 import CoursePreview from "../components/CoursePreview.vue";
 import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import jsonData from "../data.json";
+import moment from "moment";
+
 export default {
   name: "CoursesView",
   components: { CoursePreview, FilterEventsRow },
   data() {
-    return {};
+    return {
+      categoryFilter: [],
+      levelFilter: [],
+      dateFilter: [],
+    };
   },
+
   computed: {
     courses() {
-      return jsonData.courses;
+      let startDate = null;
+      let endDate = null;
+      if (this.dateFilter.length) {
+        startDate = moment(this.dateFilter[0]);
+        endDate = moment(this.dateFilter[1]);
+      }
+
+      return jsonData.courses.filter((a) => {
+        const compareDate = moment(a.date, "DD/MM/YYYY");
+        let isDateBetween = true;
+        if (startDate && endDate) {
+          isDateBetween = compareDate.isBetween(startDate, endDate);
+        }
+
+        if (
+          (this.categoryFilter.length == 0 ||
+            this.categoryFilter.indexOf(a.genre) > -1) &&
+          (this.levelFilter.length == 0 ||
+            this.levelFilter.indexOf(a.levelFilter) > -1) &&
+          isDateBetween
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+    },
+  },
+  methods: {
+    filterChanged(filteredItem) {
+      this[filteredItem.Label] = filteredItem.Value;
     },
   },
   mounted() {

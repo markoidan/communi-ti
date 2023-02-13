@@ -7,7 +7,7 @@
         "pictureUrl": "src/assets/avatar.png",
         "description":"I am so cool"
       },
-      "date": "THU,FEB 16",
+      "date": "22/03/2022",
       "name": "Coralogix",
       "location": "room",
       "details": "information about the lecture",
@@ -21,7 +21,7 @@
         "pictureUrl": "src/assets/avatar.png"
       },
       "name": "Vue 3",
-      "date": "THU,FEB 16",
+      "date": "25/01/2022",
       "location": "room",
       "details": "information about the lecture",
       "genre": "tech",
