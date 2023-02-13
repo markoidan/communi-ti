@@ -1,31 +1,64 @@
 <template>
-  <div>WishLists</div>
-  <v-expansion-panels>
-    <v-expansion-panel v-for="(item, index) in wishList" :key="index">
-      <v-expansion-panel-title>
-        <div class="wish-list-item">
-          <span>{{ item.name }}</span>
-          <span> {{ item.level }}</span>
-          <span>{{ item.category }}</span>
-        </div></v-expansion-panel-title
+  <div v-for="(item, index) in wishList" :key="index">
+    <div class="wish-list">
+      <span style="padding: 3px 10px ">
+        <font-awesome-icon
+          icon="fa-solid fa-angle-down"
+          @click="item.isOpen = !item.isOpen"
+          v-if="!item.isOpen"
+        />
+        <font-awesome-icon
+          icon="fa-solid fa-angle-up"
+          @click="item.isOpen = !item.isOpen"
+          v-if="item.isOpen"
+        />
+      </span>
+      <span class="wish-list-name">{{ item.name }}</span>
+      <span class="wish-list-item"> {{ item.level }}</span>
+      <span class="wish-list-item">{{ item.category }}</span>
+      <span @click.prevent="like(item)"
+        ><font-awesome-icon icon="fa-solid fa-thumbs-up" />
+        {{ item.likes }}</span
       >
-      <v-expansion-panel-text>{{ item.description }}</v-expansion-panel-text>
-    </v-expansion-panel>
-  </v-expansion-panels>
+    </div>
+    <div v-if="item.isOpen" class="description">
+      {{ item.description }}
+    </div>
+    <v-divider></v-divider>
+  </div>
 </template>
 <script>
 import { useSessionsStore } from "@/store/sessions.js";
-import { mapState } from "pinia";
+import { mapState, mapActions } from "pinia";
 export default {
   name: "WishLists",
   computed: {
     ...mapState(useSessionsStore, ["wishList"]),
   },
+  methods: {
+    ...mapActions(useSessionsStore, ["likeWishListSession"]),
+    like(item) {
+      item.likes++;
+    },
+  },
 };
 </script>
-<style>
-.wish-list-item {
+<style scoped>
+.wish-list {
   display: flex;
-  gap: 20px;
+  padding: 20px 0;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  flex-basis: 100px;
+}
+.wish-list-name {
+  flex: 210px 0 1;
+}
+.wish-list-item {
+  flex: 150px 0 1;
+}
+.description {
+  background-color: #fafafa;
 }
 </style>

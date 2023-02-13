@@ -401,6 +401,7 @@ export const useSessionsStore = defineStore("sessions", {
         level: "Beginner",
         category: "other",
         likes: 5,
+        description: 'lll lll lll ll '
       },
       {
         name: "Data Science",
