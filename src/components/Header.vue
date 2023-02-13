@@ -8,6 +8,11 @@
     Create session
   </v-btn>
   <v-btn @click="requestSession">Request session</v-btn>
+  <div style="margin: auto; width: 400px">
+    <v-btn prepend-icon="mdi-arrow-left" variant="text" @click="$router.go(-1)">
+      Back
+    </v-btn>
+  </div>
 </template>
 <script>
 export default {

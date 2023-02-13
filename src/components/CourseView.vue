@@ -2,15 +2,6 @@
   <div class="course-view">
     <div>
       <div class="course-view-header">
-        <div>
-          <v-btn
-            prepend-icon="mdi-arrow-left"
-            variant="text"
-            @click="$router.go(-1)"
-          >
-            Back
-          </v-btn>
-        </div>
         <div style="display: flex; gap: 8px">
           <div>
             <v-img
