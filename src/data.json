@@ -1,0 +1,15 @@
+{
+  "courses": [
+    {
+      "speaker": {
+        "name": "Ori pearl",
+        "pictureUrl": ""
+      },
+      "date": "THU,FEB 16",
+      "location": "room",
+      "details": "information about the lecture",
+      "genre": "tech",
+      "attendees": []
+    }
+  ]
+}
