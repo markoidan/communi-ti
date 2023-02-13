@@ -1,7 +1,7 @@
 <template>
   <div class="speaker-metadata">
     <v-avatar :image="speaker.pictureUrl" :size="iconSize"></v-avatar>
-    <div class="speaker-metadata__description">
+    <div class="speaker-metadata__description" :class="[{'speaker-metadata__description--size': isSmallSize }]">
       <span>{{ speaker.name }}</span>
       <span>{{ speaker.description }}</span>
     </div>
@@ -16,7 +16,11 @@ export default {
       type: Number,
       default: 45,
     },
-    speaker: Object,
+    isSmallSize: {
+      type: Boolean,
+      default: true
+    },
+    speaker: Object
   },
 };
 </script>
@@ -29,5 +33,9 @@ export default {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+}
+
+.speaker-metadata__description--size{
+  size: 25px;
 }
 </style>
