@@ -2,7 +2,7 @@
   <div class="courses">
     <h1>Courses 1</h1>
     <div v-for="course in courses" :key="course.id">
-      <CoursePreview :course="course"></CoursePreview>
+      <CoursePreview @click="redirect(course)" :course="course"></CoursePreview>
       <v-divider class="divider"></v-divider>
     </div>
   </div>
@@ -11,6 +11,7 @@
 <script>
 import CoursePreview from "../components/CoursePreview.vue";
 import jsonData from "../data.json";
+import router from "@/router";
 export default {
   name: "CoursesView",
   components: { CoursePreview },
@@ -25,10 +26,16 @@ export default {
   mounted() {
     console.log(this.courses);
   },
+  methods: {
+    redirect(course) {
+      console.log("course", course);
+      router.push({ name: 'course', state: {course} })
+    }
+  }
 };
 </script>
 <style>
 .divider {
-  margin: 20px 0; 
+  margin: 20px 0;
 }
 </style>

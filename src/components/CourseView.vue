@@ -1,5 +1,6 @@
 <template>
   <div class="d-flex align-center flex-column">
+    <speaker-metadata :speaker="course.speaker"></speaker-metadata>
   <img src="../assets/600_510511628.webp" alt="hi">
     <v-card
         width="1000"
@@ -32,9 +33,20 @@
   </v-banner>
 </template>
 <script>
+import SpeakerMetadata from "@/components/SpeakerMetadata.vue";
+import router from "@/router";
 export default {
   name: 'CourseView',
-
+  components: {SpeakerMetadata},
+  data() {
+    return {
+      course: {}
+    }
+  },
+  mounted() {
+    console.log('this.course', this.course);
+    this.course = router.state.course;
+  }
 }
 </script>
 <style>
