@@ -1,30 +1,33 @@
 <template>
   <div class="courses">
     <div class="left">
-      <filter-events-row @filter-changed="filterChanged"></filter-events-row>
       <div class="title">Upcoming sessions</div>
-      <div v-for="(course, index) in courses" :key="course.id" class="session">
-        <CoursePreview
-          :course="course"
-          @click="redirect(course)"
-        ></CoursePreview>
-        <v-divider
-          class="divider"
-          v-if="index != courses.length - 1"
-        ></v-divider>
-      </div>
-      <div class="title">Closed sessions</div>
-      <div v-for="closedCourse in completedCourses" :key="closedCourse.id">
-        <CoursePreview :course="closedCourse"></CoursePreview>
-        <v-divider
-          class="divider"
-          v-if="index != completedCourses.length - 1"
-        ></v-divider>
+      <filter-events-row @filter-changed="filterChanged"></filter-events-row>
+      <div class="course">
+        <div v-for="(course, index) in courses" :key="course.id">
+          <CoursePreview
+            :course="course"
+            @click="redirect(course)"
+          ></CoursePreview>
+          <v-divider
+            class="divider"
+            v-if="index != courses.length - 1"
+          ></v-divider>
+        </div>
+        <div class="title">Closed sessions</div>
+        <div v-for="closedCourse in completedCourses" :key="closedCourse.id">
+          <CoursePreview :course="closedCourse"></CoursePreview>
+          <v-divider
+            class="divider"
+            v-if="index != closedCourses.length - 1"
+          ></v-divider>
+        </div>
       </div>
     </div>
     <div class="right">
-      <div class="top-sessions">
-        <TopSessions></TopSessions>
+      <div>
+        <div class="title">Top sessions</div>
+        <TopSessions class="top-sessions"></TopSessions>
       </div>
       <div class="wishlists">
         <WishLists></WishLists>
@@ -123,9 +126,14 @@ export default {
   flex-direction: row;
   height: calc(95vh);
 }
-.left {
-  flex: 2;
+.course {
   overflow-y: scroll;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+
   margin-left: 40px;
 }
 .right {
@@ -134,17 +142,16 @@ export default {
   flex-direction: column;
 }
 .top-sessions {
-  height: 50%;
   margin: 10px;
   flex: 1;
-  overflow-y: scroll;
 }
 .wishlists {
   height: 50%;
   padding: 40px;
 }
 .title {
-  padding: 20px 0;
+  text-align: center;
+  margin: 20px 0;
   font-size: 20px;
   font-weight: bold;
 }

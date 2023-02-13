@@ -1,6 +1,5 @@
 <template>
   <div v-if="topCourses">
-    <div class="title">Top sessions</div>
     <div v-for="(course, index) in topCourses" :key="course.id">
       <CoursePreview :course="course" @click="redirect(course)"></CoursePreview>
       <v-divider
