@@ -395,6 +395,38 @@ export const useSessionsStore = defineStore("sessions", {
         ],
       },
     ],
+    wishList: [
+      {
+        name: "Israeli History",
+        level: "Beginner",
+        category: "other",
+        likes: 5,
+      },
+      {
+        name: "Data Science",
+        level: "Beginner",
+        category: "tech",
+        likes: 4,
+      },
+      {
+        name: "Web Development",
+        level: "Advance",
+        category: "tech",
+        likes: 4,
+      },
+      {
+        name: "Nutrition and Diet",
+        level: "Beginner",
+        category: "other",
+        likes: 3,
+      },
+      {
+        name: "Creative Writing",
+        level: "Beginner",
+        category: "Creative",
+        likes: 1,
+      },
+    ],
   }),
   getters: {
     topCourses: (state) => {
