@@ -4,7 +4,7 @@
       v-model="selectedItems"
       class="course-filter"
       chips
-      :label="label"
+      :label="placeholder"
       :items="items"
       multiple
       variant="underlined"
@@ -18,7 +18,7 @@
 <script>
 export default {
   name: "FilterEvents",
-  props: ["label", "items"],
+  props: ["label", "items", "placeholder"],
   data: () => ({
     selectedItems: [],
   }),

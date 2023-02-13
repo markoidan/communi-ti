@@ -92,7 +92,6 @@ export default {
     redirect(course) {
       this.$router.replace({ name: "course", params: { id: course.id } });
     },
-   
   },
 };
 </script>
@@ -100,13 +99,15 @@ export default {
 .courses {
   display: flex;
   flex-direction: row;
+  height: calc(95vh);
 }
 .left {
-  width: 60%;
-  margin: 40px;
+  flex: 2;
+  overflow-y: scroll;
+  margin-left: 40px;
 }
 .right {
-  width: 30%;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -125,5 +126,9 @@ export default {
   margin: 20px 0;
   font-size: 20px;
   font-weight: bold;
+}
+.top-sessions {
+  flex: 1;
+  overflow-y: scroll;
 }
 </style>

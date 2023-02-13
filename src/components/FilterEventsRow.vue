@@ -1,11 +1,13 @@
 <template>
   <div class="filter-events-row">
     <filter-events
+      placeholder="Category"
       @filter-changed="filterChanged"
       label="categoryFilter"
       :items="['tech', 'product', 'marketing', 'creative', 'hobbies', 'other']"
     ></filter-events>
     <filter-events
+    placeholder="Level"
       @filter-changed="filterChanged"
       label="levelFilter"
       :items="['Beginner', 'Intermediate', 'Advance']"
