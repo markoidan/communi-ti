@@ -12,14 +12,14 @@
 </template>
 
 <script>
-import SpeakerMetadata from "./SpeakerMetadata.vue";
+// import SpeakerMetadata from "./SpeakerMetadata.vue";
 export default {
   name: "CoursePreview",
   props: {
     course: Object,
   },
   components: {
-    SpeakerMetadata,
+    // SpeakerMetadata,
   },
   mounted() {},
 };

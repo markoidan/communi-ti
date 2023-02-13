@@ -1,5 +1,6 @@
 <template>
   <div class="speaker-metadata">
+    speaker {{ speaker }}
     <v-avatar :image="speaker.pictureUrl" :size="iconSize"></v-avatar>
     <div
       class="speaker-metadata__description"

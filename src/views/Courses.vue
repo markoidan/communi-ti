@@ -3,7 +3,7 @@
     <div class="left">
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
       <div class="title">Upcoming sessions</div>
-      <div v-for="(course, index) in courses" :key="course.id">
+      <div v-for="(course, index) in courses" :key="course.id" class="session">
         <CoursePreview
           :course="course"
           @click="redirect(course)"
@@ -14,11 +14,11 @@
         ></v-divider>
       </div>
       <div class="title">Closed sessions</div>
-      <div v-for="closedCourse in closedCourses" :key="closedCourse.id">
+      <div v-for="closedCourse in completedCourses" :key="closedCourse.id">
         <CoursePreview :course="closedCourse"></CoursePreview>
         <v-divider
           class="divider"
-          v-if="index != closedCourses.length - 1"
+          v-if="index != completedCourses.length - 1"
         ></v-divider>
       </div>
     </div>
@@ -38,9 +38,10 @@ import CoursePreview from "@/components/CoursePreview.vue";
 import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import TopSessions from "@/components/TopSessions.vue";
 import WishLists from "@/components/WishLists.vue";
-import jsonData from "../data.json";
 import router from "@/router";
 import moment from "moment";
+import { mapState } from "pinia";
+import { useSessionsStore } from "@/store/sessions.js";
 
 export default {
   name: "CoursesView",
@@ -54,8 +55,29 @@ export default {
   },
 
   computed: {
-    closedCourses() {
-      return jsonData.closedCourses;
+    ...mapState(useSessionsStore, ["closedCourses", "openCourses"]),
+    completedCourses() {
+      let startDate = null;
+      let endDate = null;
+      return this.closedCourses.filter((a) => {
+        const compareDate = moment(a.date, "DD/MM/YYYY");
+        let isDateBetween = true;
+        if (startDate && endDate) {
+          isDateBetween = compareDate.isBetween(startDate, endDate);
+        }
+
+        if (
+          (this.categoryFilter.length == 0 ||
+            this.categoryFilter.indexOf(a.category) > -1) &&
+          (this.levelFilter.length == 0 ||
+            this.levelFilter.indexOf(a.levelFilter) > -1) &&
+          isDateBetween
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      });
     },
     courses() {
       let startDate = null;
@@ -65,7 +87,7 @@ export default {
         endDate = moment(this.dateFilter[1]);
       }
 
-      return jsonData.courses.filter((a) => {
+      return this.openCourses.filter((a) => {
         const compareDate = moment(a.date, "DD/MM/YYYY");
         let isDateBetween = true;
         if (startDate && endDate) {
@@ -94,7 +116,6 @@ export default {
       console.log("course", course);
       router.push({ name: "course", state: { course } });
     },
-   
   },
 };
 </script>
@@ -105,7 +126,7 @@ export default {
 }
 .left {
   width: 60%;
-  margin: 40px;
+  padding: 40px;
 }
 .right {
   width: 30%;
@@ -114,18 +135,18 @@ export default {
 }
 .top-sessions {
   height: 50%;
-  margin: 40px;
+  padding: 40px;
 }
 .wishlists {
   height: 50%;
-  margin: 40px;
-}
-.divider {
-  margin: 20px 0;
+  padding: 40px;
 }
 .title {
-  margin: 20px 0;
+  padding: 20px 0;
   font-size: 20px;
   font-weight: bold;
+}
+.session:hover {
+  background-color: #f0f5ff;
 }
 </style>
