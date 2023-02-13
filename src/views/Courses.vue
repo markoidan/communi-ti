@@ -1,5 +1,4 @@
 <template>
-  <CoursesHeader></CoursesHeader>
   <div class="courses">
     <div class="left">
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
@@ -36,7 +35,6 @@ import CoursePreview from "@/components/CoursePreview.vue";
 import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import TopSessions from "@/components/TopSessions.vue";
 import WishLists from "@/components/WishLists.vue";
-import CoursesHeader from "@/components/Header.vue";
 import moment from "moment";
 import { mapState } from "pinia";
 import { useSessionsStore } from "@/store/sessions.js";
@@ -48,7 +46,6 @@ export default {
     FilterEventsRow,
     TopSessions,
     WishLists,
-    CoursesHeader,
   },
   data() {
     return {
