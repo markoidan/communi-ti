@@ -54,7 +54,11 @@
         label="Create another"
         color="indigo-darken-3"
       ></v-checkbox>
-      <v-btn class="session-creation__create--button" color="amber-accent-4" @click="createSession">
+      <v-btn
+        class="session-creation__create--button"
+        color="amber-accent-4"
+        @click="createSession"
+      >
         Create
       </v-btn>
     </div>
@@ -107,27 +111,27 @@ export default {
     },
     createSession() {
       this.addSession(this.session);
-      // if(!this.isWantToCreateAnother){
-      //   this.$route.push();
-      // }
-
-      this.isWantToCreateAnother = false;
-      this.session =  {
-        description: "",
-        id: null,
-        speaker: {
-          name: "Sveta Osherov Gross",
-          pictureUrl: "src/assets/Sveta.jpg",
-          description: "Digital Marketing Strategy",
-        },
-        date: "01/03/23 8:00",
-        name: "",
-        location: "Gordon",
-        details: "",
-        category: "",
-        level: "",
-        length: 0,
-        attendees: [],
+      if (!this.isWantToCreateAnother) {
+        this.$router.push("/");
+      } else {
+        this.isWantToCreateAnother = false;
+        this.session = {
+          description: "",
+          id: null,
+          speaker: {
+            name: "Sveta Osherov Gross",
+            pictureUrl: "src/assets/Sveta.jpg",
+            description: "Digital Marketing Strategy",
+          },
+          date: "01/03/23 8:00",
+          name: "",
+          location: "Gordon",
+          details: "",
+          category: "",
+          level: "",
+          length: 0,
+          attendees: [],
+        };
       }
     },
     updateDetails($event) {
@@ -146,7 +150,7 @@ export default {
       this.session.category = Object.values(category.Value)[0];
     },
     updateDate(date) {
-      const getSpecificDate = date.Value[0].toString().split('GMT');
+      const getSpecificDate = date.Value[0].toString().split("GMT");
       this.session.date = getSpecificDate[0];
     },
   },

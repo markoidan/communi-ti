@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { cloneDeep } from "lodash/cloneDeep";
 export const useSessionsStore = defineStore("sessions", {
   state: () => ({
     filter: {},
@@ -413,10 +412,8 @@ export const useSessionsStore = defineStore("sessions", {
           max = session.id;
         }
       });
-      console.log("max :>> ", max);
       newSession.id = max++;
-      console.log('cloneDeep(newSession) :>> ', cloneDeep(newSession));
-      this.openCourses.push(cloneDeep(newSession));
+      this.openCourses.push(newSession);
     },
   },
 });
