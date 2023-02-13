@@ -1,10 +1,26 @@
 {
   "courses": [
     {
+      "id": 1,
       "speaker": {
         "name": "Ori pearl",
-        "pictureUrl": ""
+        "pictureUrl": "src/assets/avatar.png",
+        "description":"I am so cool"
       },
+      "date": "THU,FEB 16",
+      "name": "Coralogix",
+      "location": "room",
+      "details": "information about the lecture",
+      "genre": "tech",
+      "attendees": []
+    },
+    {
+      "id": 2,
+      "speaker": {
+        "name": "Ori pearl1",
+        "pictureUrl": "src/assets/avatar.png"
+      },
+      "name": "Vue 3",
       "date": "THU,FEB 16",
       "location": "room",
       "details": "information about the lecture",
