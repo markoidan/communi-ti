@@ -1,14 +1,19 @@
 <template>
   <v-app>
     <v-main>
+      <CoursesHeader></CoursesHeader>
       <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import CoursesHeader from "@/components/Header.vue";
 export default {
   name: "App",
+  components: {
+    CoursesHeader,
+  },
   data: () => ({
     //
   }),

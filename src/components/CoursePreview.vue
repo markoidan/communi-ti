@@ -15,6 +15,12 @@
     </div>
     <div class="date">{{ course.date }}</div>
     <div class="description">{{ course.description }}</div>
+    SpeakerMetadata<SpeakerMetadata
+      class="avatar"
+      :speaker="course.speaker"
+      :iconSize="42"
+      isSmallSize:true
+    ></SpeakerMetadata>
   </div>
 </template>
 

@@ -45,7 +45,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineer",
         },
         name: "Vue 3",
-        date: "02/04/23",
+        date: "02/04/23 15:00",
         time: "30",
         location: "Apolonoa",
         description:
@@ -75,7 +75,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineer",
         },
         name: "Product Marketing",
-        date: "03/04/23",
+        date: "03/04/23 12:00",
         time: "45",
         location: "Ein Gedi",
         description: "'Product Marketing: From Strategy to Launch'",
@@ -97,7 +97,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineer",
         },
         name: "Admin 2.0",
-        date: "04/05/23",
+        date: "04/05/23 9:00",
         time: "60",
         location: "Sidny",
         description:
@@ -120,7 +120,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Product Manager",
         },
         name: "Marketing Basics",
-        date: "05/05/23",
+        date: "05/05/23 14:20",
         time: "15",
         location: "Kalia",
         description:
@@ -143,7 +143,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "UX Designer",
         },
         name: "Digital Marketing Strategy",
-        date: "06/06/23",
+        date: "06/06/23 15:00",
         time: "30",
         location: "Sphera",
         description:
@@ -166,7 +166,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineering Manager",
         },
         name: "Creative Basics",
-        date: "07/07/23",
+        date: "07/07/23 16:00",
         time: "30",
         location: "Castel",
         description:
@@ -189,7 +189,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineer",
         },
         name: "Creative Storytelling",
-        date: "01/07/23",
+        date: "01/07/23 17:00",
         time: "45",
         location: "Dor",
         description:
@@ -212,7 +212,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "UX Designer",
         },
         name: "Retiring at age 40",
-        date: "09/07/23",
+        date: "09/07/23 18:00",
         time: "30",
         location: "Arbel",
         description:
@@ -235,7 +235,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Automation Engineer",
         },
         name: "Parental Guidance",
-        date: "03/08/23",
+        date: "03/08/23 11:00",
         time: "60",
         location: "Carmel",
         description:
@@ -258,7 +258,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineer",
         },
         name: "How to Plan a Trip",
-        date: "09/08/23",
+        date: "09/08/23 09:00",
         time: "30",
         location: "Dov",
         description:
@@ -281,7 +281,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineer",
         },
         name: "Lattice Theory",
-        date: "01/09/23",
+        date: "01/09/23 8:00",
         time: "30",
         location: "Golan",
         description:
@@ -304,7 +304,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Product Manager",
         },
         name: "Female Empowerment",
-        date: "09/09/23",
+        date: "09/09/23 8:00 ",
         time: "15",
         location: "Meron",
         description:
@@ -327,7 +327,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineering Manager",
         },
         name: "Preventing Baby Colic",
-        date: "09/07/23",
+        date: "09/07/23 8:00",
         time: "45",
         location: "Ofir",
         description:
@@ -350,7 +350,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineering Manager",
         },
         name: "Coralogix",
-        date: "11/10/23",
+        date: "11/10/23 8:00",
         time: "15",
         location: "Tavor",
         description:
@@ -375,7 +375,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineer",
         },
         name: "Cooking",
-        date: "13/01/23",
+        date: "13/01/23 8:00",
         time: "60",
         location: "Apolonoa",
         description:
@@ -405,7 +405,7 @@ export const useSessionsStore = defineStore("sessions", {
           description: "Software Engineer",
         },
         name: "Russian",
-        date: "02/02/23",
+        date: "02/02/23 8:00",
         time: "30",
         location: "Apolonoa",
         description:
