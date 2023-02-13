@@ -1,5 +1,7 @@
 <template>
-  <div class="course-preview">    
+  <div class="preview">
+    <div class="date">{{ course.date }}</div>
+    {{ course.speaker.name }}
   </div>
 </template>
 
@@ -7,9 +9,16 @@
 export default {
   name: "CoursePreview",
   props: {
-    msg: String,
+    course: Object,
+  },
+  mounted() {
+    console.log("course", this.course);
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.date {
+  color: gray;
+}
+</style>

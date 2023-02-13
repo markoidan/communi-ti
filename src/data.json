@@ -1,6 +1,7 @@
 {
   "courses": [
     {
+      "id": 1,
       "speaker": {
         "name": "Ori pearl",
         "pictureUrl": ""
