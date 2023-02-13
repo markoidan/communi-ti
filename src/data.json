@@ -8,6 +8,38 @@
     "other"
   ],
   "levels": ["Beginner", "Intermediate", "Advance"],
+  "closedCourses": [
+    {
+      "description": "This is a short description",
+      "id": 1,
+      "speaker": {
+        "name": "Ori pearl",
+        "pictureUrl": "src/assets/avatar.png",
+        "description": "I am so cool"
+      },
+      "date": "THU,FEB 16",
+      "name": "Coralogix",
+      "location": "room",
+      "details": "information about the lecture",
+      "category": "tech",
+      "attendees": []
+    },
+    {
+      "description": "This is a short description",
+      "id": 32,
+      "speaker": {
+        "name": "Ori pearl",
+        "pictureUrl": "src/assets/avatar.png",
+        "description": "I am so cool"
+      },
+      "date": "THU,FEB 16",
+      "name": "Coralogix",
+      "location": "room",
+      "details": "information about the lecture",
+      "category": "tech",
+      "attendees": []
+    }
+  ],
   "courses": [
     {
       "description": "This is a short description",
@@ -37,6 +69,22 @@
       "details": "information about the lecture",
       "category": "tech",
       "attendees": []
+    }
+  ],
+  "wishList": [
+    {
+      "name": "courseName",
+      "description": "description",
+      "level": "Beginner",
+      "category": "tech",
+      "likes": 5
+    },
+    {
+      "name": "courseName",
+      "description": "description",
+      "level": "Beginner",
+      "category": "tech",
+      "likes": 5
     }
   ]
 }
