@@ -1,30 +1,34 @@
 <template>
   <div class="courses">
     <div class="left">
-      <filter-events-row @filter-changed="filterChanged"></filter-events-row>
       <div class="title">Active courses</div>
-      <div v-for="(course, index) in courses" :key="course.id">
-        <CoursePreview
-          :course="course"
-          @click="redirect(course)"
-        ></CoursePreview>
-        <v-divider
-          class="divider"
-          v-if="index != courses.length - 1"
-        ></v-divider>
-      </div>
-      <div class="title">Closed courses</div>
-      <div v-for="closedCourse in closedCourses" :key="closedCourse.id">
-        <CoursePreview :course="closedCourse"></CoursePreview>
-        <v-divider
-          class="divider"
-          v-if="index != closedCourses.length - 1"
-        ></v-divider>
+      <filter-events-row @filter-changed="filterChanged"></filter-events-row>
+
+      <div class="course">
+        <div v-for="(course, index) in courses" :key="course.id">
+          <CoursePreview
+            :course="course"
+            @click="redirect(course)"
+          ></CoursePreview>
+          <v-divider
+            class="divider"
+            v-if="index != courses.length - 1"
+          ></v-divider>
+        </div>
+        <div class="title">Closed courses</div>
+        <div v-for="closedCourse in closedCourses" :key="closedCourse.id">
+          <CoursePreview :course="closedCourse"></CoursePreview>
+          <v-divider
+            class="divider"
+            v-if="index != closedCourses.length - 1"
+          ></v-divider>
+        </div>
       </div>
     </div>
     <div class="right">
-      <div class="top-sessions">
-        <TopSessions></TopSessions>
+      <div>
+        <div class="title">Top sessions</div>
+        <TopSessions class="top-sessions"></TopSessions>
       </div>
       <div class="wishlists">
         <WishLists></WishLists>
@@ -101,9 +105,14 @@ export default {
   flex-direction: row;
   height: calc(95vh);
 }
-.left {
-  flex: 2;
+.course {
   overflow-y: scroll;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+
   margin-left: 40px;
 }
 .right {
@@ -125,6 +134,7 @@ export default {
   margin: 20px 0;
 }
 .title {
+  text-align: center;
   margin: 20px 0;
   font-size: 20px;
   font-weight: bold;
