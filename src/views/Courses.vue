@@ -12,7 +12,6 @@
 import CoursePreview from "../components/CoursePreview.vue";
 import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import jsonData from "../data.json";
-import router from "@/router";
 import moment from "moment";
 
 export default {
@@ -61,8 +60,7 @@ export default {
       this[filteredItem.Label] = filteredItem.Value;
     },
     redirect(course) {
-      console.log("course", course);
-      router.push({ name: "course", state: { course } });
+      this.$router.replace({ name: "course", params: { id: course.id } });
     },
   },
   mounted() {

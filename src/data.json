@@ -28,7 +28,8 @@
       "id": 2,
       "speaker": {
         "name": "Ori pearl1",
-        "pictureUrl": "src/assets/avatar.png"
+        "pictureUrl": "src/assets/avatar.png",
+        "description": "I am so cool"
       },
       "name": "Vue 3",
       "date": "25/01/2022",
