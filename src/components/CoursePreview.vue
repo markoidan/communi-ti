@@ -27,9 +27,6 @@ export default {
 </script>
 
 <style scoped>
-.preview {
-  margin: 0 20px;
-}
 .date {
   font-size: 14px;
   color: gray;
