@@ -7,6 +7,7 @@
       <div class="courses-container">
         <div v-for="(course, index) in courses" :key="index" class="course">
           <CoursePreview
+            style="cursor: pointer"
             :course="course"
             @click="redirect(course)"
           ></CoursePreview>
@@ -101,7 +102,7 @@ export default {
           (this.categoryFilter.length == 0 ||
             this.categoryFilter.indexOf(a.category) > -1) &&
           (this.levelFilter.length == 0 ||
-            this.levelFilter.indexOf(a.levelFilter) > -1) &&
+            this.levelFilter.indexOf(a.level) > -1) &&
           isDateBetween
         ) {
           return true;
@@ -116,7 +117,7 @@ export default {
       this[filteredItem.Label] = filteredItem.Value;
     },
     redirect(course) {
-      this.$router.replace({ name: "course", params: { id: course.id } });
+      this.$router.push({ name: "course", params: { id: course.id } });
     },
   },
 };
@@ -128,7 +129,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 30px;
-  height: calc(95vh);
+  height: calc(90vh);
 }
 .courses-container {
   /* display: flex;
@@ -147,18 +148,15 @@ export default {
   margin-left: 40px;
 }
 .right {
-  margin-top: 112px;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 .top-sessions {
-  margin: 10px;
   flex: 1;
 }
 .wishlists {
-  height: 50%;
-  padding: 40px;
+  flex: 1;
 }
 .title {
   text-align: left;
