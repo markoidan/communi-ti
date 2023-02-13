@@ -6,6 +6,7 @@
       <div class="course">
         <div v-for="(course, index) in courses" :key="course.id">
           <CoursePreview
+            style="cursor: pointer"
             :course="course"
             @click="redirect(course)"
           ></CoursePreview>
@@ -143,6 +144,7 @@ export default {
 }
 .top-sessions {
   margin: 10px;
+  margin-top: 70px;
   flex: 1;
 }
 .wishlists {
@@ -150,7 +152,6 @@ export default {
   padding: 40px;
 }
 .title {
-  text-align: center;
   margin: 20px 0;
   font-size: 20px;
   font-weight: bold;

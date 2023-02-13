@@ -1,9 +1,12 @@
 <template>
   <div>
     <div class="d-flex align-center flex-column" v-if="course?.speaker">
-      {{ course }}
-      <speaker-metadata :speaker="course.speaker"></speaker-metadata>
-      <img src="../assets/600_510511628.webp" alt="hi" />
+      <SpeakerMetadata
+        class="avatar"
+        :speaker="course.speaker"
+        :iconSize="42"
+        isSmallSize:true
+      ></SpeakerMetadata>
       <v-card
         width="1000"
         title="Details"

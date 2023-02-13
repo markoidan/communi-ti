@@ -1,6 +1,6 @@
 <template>
   <div class="speaker-metadata" v-if="speaker">
-    <v-avatar :image="speaker.pictureUrl" :size="iconSize"></v-avatar>
+    <v-avatar :image="speakerImage" :size="iconSize"></v-avatar>
     <div
       class="speaker-metadata__description"
       :class="[{ 'speaker-metadata__description--size': isSmallSize }]"
@@ -23,6 +23,11 @@ export default {
     isSmallSize: {
       type: Boolean,
       default: false,
+    },
+  },
+  computed: {
+    speakerImage() {
+      return `${window.origin}/${this.speaker.pictureUrl}`;
     },
   },
 };

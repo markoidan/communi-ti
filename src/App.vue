@@ -1,6 +1,12 @@
 <template>
   <v-app>
     <v-main>
+      <v-img
+        :aspect-ratio="aspectRatio"
+        :width="300"
+        src="src/assets/logo.jpg"
+        cover
+      ></v-img>
       <router-view />
     </v-main>
   </v-app>
@@ -17,18 +23,13 @@ export default {
 
 <style>
 ::-webkit-scrollbar {
-  width: 12px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 8px;
-  background-color: #95a5a6;
-  border: 1px solid #cacaca;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 8px;
-  background-color: #2c3e50;
 }
 .course-filter {
   width: 100px;
