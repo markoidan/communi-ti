@@ -1,37 +1,35 @@
 <template>
-  <img src="src/assets/CommunityLogo.jpg" class="logo" />
-  <v-btn
-    class="session-creation__create--button"
-    color="amber-accent-4"
-    @click="createSession"
+  <div
+    style="margin: auto"
+    v-if="showBackIcon"
+    :class="{
+      'move-back-button': moveBackButton,
+      'back-button': !moveBackButton,
+    }"
   >
-    Create session
-  </v-btn>
-  <v-btn @click="requestSession">Request session</v-btn>
-    <request-session-modal :is-open="isRequestSessionModalOpen" @close="isRequestSessionModalOpen = false" />
-  <div style="margin: auto; width: 400px">
     <v-btn prepend-icon="mdi-arrow-left" variant="text" @click="$router.go(-1)">
       Back
     </v-btn>
   </div>
 </template>
 <script>
-import RequestSessionModal from "../components/RequestSessionModal.vue";
-
 export default {
   name: "CoursesHeader",
-  components: { RequestSessionModal },
-  data() {
-    return {
-      isRequestSessionModalOpen: false,
-    };
-  },
-  methods: {
-    createSession() {
-      this.$router.push({ name: "addSession" });
-    },
-    requestSession() {
-      this.isRequestSessionModalOpen = true;
+  data: () => ({
+    showBackIcon: false,
+  }),
+  watch: {
+    $route: function () {
+      if (window.location.pathname == "/") {
+        this.showBackIcon = false;
+      } else {
+        this.showBackIcon = true;
+      }
+      if (window.location.pathname == "/add-session") {
+        this.moveBackButton = true;
+      } else {
+        this.moveBackButton = false;
+      }
     },
   },
 };
@@ -40,5 +38,11 @@ export default {
 .logo {
   height: 75px;
   width: 170px;
+}
+.move-back-button {
+  width: 624px;
+}
+.back-button {
+  width: 400px;
 }
 </style>

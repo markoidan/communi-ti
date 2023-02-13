@@ -6,13 +6,16 @@
       <font-awesome-icon icon="fa-chess-knight" v-if="category == 'hobbies'" />
       <font-awesome-icon icon="fa-comment-dots" v-if="category == 'other'" />
       <font-awesome-icon icon="fa-palette" v-if="category == 'creative'" />
-      {{ category }}
+      <font-awesome-icon
+        icon="fa-chess-knight"
+        v-if="category == 'marketing'"
+      />
+      <span style="padding-left:7px">{{ category }}</span>
     </div>
   </div>
 </template>
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
 export default {
   name: "CourseCategory",
   props: {
@@ -25,8 +28,7 @@ export default {
 .category-icon {
   border-radius: 30px;
   text-align: center;
-  width: 100px;
-  /* height: 30px; */
+  width: 120px;
   display: inline-block;
 }
 .icon-inner {

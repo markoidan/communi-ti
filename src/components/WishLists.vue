@@ -1,7 +1,7 @@
 <template>
   <div v-for="(item, index) in wishList" :key="index">
     <div class="wish-list">
-      <span style="padding: 3px 10px ">
+      <span style="padding: 3px 10px">
         <font-awesome-icon
           icon="fa-solid fa-angle-down"
           @click="item.isOpen = !item.isOpen"
@@ -15,8 +15,10 @@
       </span>
       <span class="wish-list-name">{{ item.name }}</span>
       <span class="wish-list-item"> {{ item.level }}</span>
-      <span class="wish-list-item">{{ item.category }}</span>
-      <span @click.prevent="like(item)"
+      <span class="wish-list-item"
+        ><CourseCategory :category="item.category"></CourseCategory
+      ></span>
+      <span style="cursor: pointer" @click.prevent="like(item)"
         ><font-awesome-icon icon="fa-solid fa-thumbs-up" />
         {{ item.likes }}</span
       >
@@ -26,19 +28,24 @@
     </div>
     <v-divider></v-divider>
   </div>
+  <v-btn variant="flat" @click="addSession">+ Request a session</v-btn>
 </template>
 <script>
 import { useSessionsStore } from "@/store/sessions.js";
-import { mapState, mapActions } from "pinia";
+import { mapState } from "pinia";
+import CourseCategory from "@/components/CourseCategory.vue";
 export default {
   name: "WishLists",
+  components: { CourseCategory },
   computed: {
     ...mapState(useSessionsStore, ["wishList"]),
   },
   methods: {
-    ...mapActions(useSessionsStore, ["likeWishListSession"]),
     like(item) {
       item.likes++;
+    },
+    addSession() {
+      this.$router.push({ name: "addSession" });
     },
   },
 };
@@ -60,5 +67,6 @@ export default {
 }
 .description {
   background-color: #fafafa;
+  padding: 10px;
 }
 </style>

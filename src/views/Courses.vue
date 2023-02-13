@@ -1,4 +1,14 @@
 <template>
+  <CoursesHeader></CoursesHeader>
+  <v-btn
+    class="session-creation__create--button"
+    color="amber-accent-4"
+    @click="createSession"
+  >
+    Create session
+  </v-btn>
+  <v-btn @click="requestSession">Request session</v-btn>
+  <request-session-modal :is-open="isRequestSessionModalOpen" @close="isRequestSessionModalOpen = false" />
   <div class="courses">
     <div class="left">
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
@@ -12,7 +22,11 @@
           ></CoursePreview>
         </div>
         <div class="title">Closed sessions</div>
-        <div v-for="closedCourse in completedCourses" :key="closedCourse.id" class="course">
+        <div
+          v-for="closedCourse in completedCourses"
+          :key="closedCourse.id"
+          class="course"
+        >
           <CoursePreview :course="closedCourse"></CoursePreview>
         </div>
       </div>
@@ -35,10 +49,11 @@ import CoursePreview from "@/components/CoursePreview.vue";
 import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import TopSessions from "@/components/TopSessions.vue";
 import WishLists from "@/components/WishLists.vue";
+import CoursesHeader from "@/components/Header.vue";
+import RequestSessionModal from "../components/RequestSessionModal.vue";
 import moment from "moment";
 import { mapState } from "pinia";
 import { useSessionsStore } from "@/store/sessions.js";
-
 export default {
   name: "CoursesView",
   components: {
@@ -46,15 +61,17 @@ export default {
     FilterEventsRow,
     TopSessions,
     WishLists,
+    CoursesHeader,
+    RequestSessionModal,
   },
   data() {
     return {
       categoryFilter: [],
       levelFilter: [],
       dateFilter: [],
+      isRequestSessionModalOpen: false,
     };
   },
-
   computed: {
     ...mapState(useSessionsStore, ["closedCourses", "openCourses"]),
     completedCourses() {
@@ -66,7 +83,6 @@ export default {
         if (startDate && endDate) {
           isDateBetween = compareDate.isBetween(startDate, endDate);
         }
-
         if (
           (this.categoryFilter.length == 0 ||
             this.categoryFilter.indexOf(a.category) > -1) &&
@@ -87,14 +103,12 @@ export default {
         startDate = moment(this.dateFilter[0]);
         endDate = moment(this.dateFilter[1]);
       }
-
       return this.openCourses.filter((a) => {
         const compareDate = moment(a.date, "DD/MM/YYYY");
         let isDateBetween = true;
         if (startDate && endDate) {
           isDateBetween = compareDate.isBetween(startDate, endDate);
         }
-
         if (
           (this.categoryFilter.length == 0 ||
             this.categoryFilter.indexOf(a.category) > -1) &&
@@ -114,13 +128,18 @@ export default {
       this[filteredItem.Label] = filteredItem.Value;
     },
     redirect(course) {
-      this.$router.push({ name: "course", params: { id: course.id } });
+      this.$router.push({ name: "session", params: { id: course.id } });
+    },
+    createSession() {
+      this.$router.push({ name: "addSession" });
+    },
+    requestSession() {
+      this.isRequestSessionModalOpen = true;
     },
   },
 };
 </script>
 <style>
-
 .courses {
   display: flex;
   flex-direction: row;
@@ -128,17 +147,13 @@ export default {
   gap: 30px;
   height: calc(90vh);
 }
-.courses-container {
-  /* display: flex;
-  flex-direction: row; */
-}
 .course {
   /* overflow-y: scroll; */
   width: 350px;
   display: inline-block;
   margin: 20px;
   vertical-align: top;
-  height: 280px;
+  height: 240px;
 }
 .left {
   flex: 2;
