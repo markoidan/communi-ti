@@ -1,11 +1,13 @@
 <template>
   <div class="filter-events-row">
     <filter-events
+      placeholder="Category"
       @filter-changed="filterChanged"
       label="categoryFilter"
       :items="['tech', 'product', 'marketing', 'creative', 'hobbies', 'other']"
     ></filter-events>
     <filter-events
+    placeholder="Level"
       @filter-changed="filterChanged"
       label="levelFilter"
       :items="['Beginner', 'Intermediate', 'Advance']"
@@ -41,9 +43,5 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-}
-.dp-custom-input {
-  border: none;
-  border-bottom: 1px solid #ababab;
 }
 </style>

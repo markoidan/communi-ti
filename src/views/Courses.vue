@@ -113,8 +113,7 @@ export default {
       this[filteredItem.Label] = filteredItem.Value;
     },
     redirect(course) {
-      console.log("course", course);
-      router.push({ name: "course", state: { course } });
+      this.$router.replace({ name: "course", params: { id: course.id } });
     },
   },
 };
@@ -123,19 +122,23 @@ export default {
 .courses {
   display: flex;
   flex-direction: row;
+  height: calc(95vh);
 }
 .left {
-  width: 60%;
-  padding: 40px;
+  flex: 2;
+  overflow-y: scroll;
+  margin-left: 40px;
 }
 .right {
-  width: 30%;
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 .top-sessions {
   height: 50%;
-  padding: 40px;
+  margin: 10px;
+  flex: 1;
+  overflow-y: scroll;
 }
 .wishlists {
   height: 50%;
