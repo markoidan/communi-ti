@@ -27,9 +27,6 @@
           ></v-text-field>
         </div>
         <div style="display: flex">
-          <div class="request-session-modal__level">
-            <session-level @selectLevel="updateSessionLevel" />
-          </div>
           <div style="margin-top: 62px">
             <filter-events
               :items="categories"
@@ -37,6 +34,9 @@
               label="Category"
               @filterChanged="updateCategory"
             ></filter-events>
+          </div>
+          <div class="request-session-modal__level">
+            <session-level @selectLevel="updateSessionLevel" />
           </div>
         </div>
         <div class="request-session-modal__focus-area">
@@ -128,6 +128,7 @@ export default {
 }
 .request-session-modal__level {
   padding-top: 50px;
+  margin-left: 50px;
 }
 .request-session-modal__focus-area {
   padding-top: 30px;
