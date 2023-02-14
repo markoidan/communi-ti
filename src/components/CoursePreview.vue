@@ -6,6 +6,13 @@
         :withText="true"
       ></CourseCategory>
       <CourseLevel :level="course.level"></CourseLevel>
+      <v-icon
+        color="#AFE1AF"
+        icon="mdi-check-all"
+        v-if="
+          course.attendees?.some((x) => x.full_name === 'Sveta Osherov Gross')
+        "
+      ></v-icon>
     </div>
     <div class="name">
       <span>{{ course.name }}</span>

@@ -149,7 +149,7 @@ export default {
   },
   methods: {
     submitCourse() {
-      this.course.attendees.push("Sveta Osherov Gross");
+      this.course.attendees.push({ full_name: "Sveta Osherov Gross" });
       this.$router.push("/");
     },
   },

@@ -7,7 +7,16 @@
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
 
       <div class="courses-container">
-        <div v-for="(course, index) in courses" :key="index" class="course">
+        <div
+          v-for="(course, index) in courses"
+          :key="index"
+          class="course"
+          :class="{
+            'in-course': course.attendees?.some(
+              (x) => x.full_name === 'Sveta Osherov Gross'
+            ),
+          }"
+        >
           <CoursePreview
             style="cursor: pointer"
             :course="course"
@@ -183,5 +192,9 @@ export default {
   font-size: 20px;
   margin-top: 24px;
   font-weight: bold;
+}
+.in-course {
+  border: 1px solid lightgray;
+  border-radius: 5px;
 }
 </style>
