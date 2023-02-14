@@ -7,20 +7,20 @@
       </span>
       <span class="wish-list-name">
         <CourseCategory
-          style="display: inline-block; margin-right:10px"
+          style="display: inline-block; margin-right: 10px"
           :category="item.category"
           :withText="false"
           width="40px"
           height="30px"
         ></CourseCategory
-        >{{ item.name }}</span
-      >
-      <span style="flex: 2">
+        ><span style="margin: 0 10px">{{ item.name }}</span>
         <CourseLevel
           style="display: inline-block; width: 90px"
           :level="item.level"
         ></CourseLevel>
       </span>
+      <!-- <span style="flex: 2"> -->
+      <!-- </span> -->
       <span class="wish-list-item">
         <span
           class="icon-like"
@@ -36,9 +36,9 @@
     <div v-if="item.isOpen" class="description">
       {{ item.description }}
     </div>
-    <v-divider class="divider"></v-divider>
+    <v-divider class="divider" v-if="index != wishList.length - 1"></v-divider>
   </div>
-  <v-btn variant="flat" @click="addSession">+ Request a session</v-btn>
+  <v-btn variant="flat" @click="addSession" style="margin-top:30px;">+ Request a session</v-btn>
 </template>
 <script>
 import { useSessionsStore } from "@/store/sessions.js";
@@ -79,7 +79,7 @@ export default {
   flex: 2;
 }
 .wish-list-item {
-  flex: 1;
+  margin: 0;
 }
 .description {
   background-color: #fafafa;
@@ -91,6 +91,6 @@ export default {
   font-weight: bold;
 }
 .divider {
-margin: 20px 0;
+  margin: 20px 0;
 }
 </style>

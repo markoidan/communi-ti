@@ -19,22 +19,20 @@
           <img src="src/assets/cup-2.jpg" class="logo" v-if="index == 1" />
           <img src="src/assets/cup-3.jpg" class="logo" v-if="index == 2" />
         </div>
-        <div>
+        <div style="flex:1">
           <div class="row">
-            <div>
-              <b style="padding-right: 5px">{{ course.name }} </b>
-              <span style="font-size: smaller">{{ course.speaker.name }}</span>
-            </div>
-          </div>
-          <div class="row"></div>
-          <div class="row">
-            <span class="date">{{ course.date }}</span>
-            <div class="date">
+            <b style="padding-right: 5px">{{ course.name }} </b>
+            <span style="font-size: smaller">{{ course.speaker.name }}</span>
+            <span style="margin: 0 0 0 auto">
               <font-awesome-icon icon="fa-user-tie" />
               <span style="padding-left: 5px">{{
                 course.attendees?.length
               }}</span>
-            </div>
+            </span>
+          </div>
+          <div class="row"></div>
+          <div class="row">
+            <span class="date">{{ course.date }}</span>
           </div>
         </div>
       </div>
@@ -83,7 +81,6 @@ export default {
   flex-direction: row;
   align-items: baseline;
   line-height: 18px;
-  gap: 10px;
 }
 .divider {
   margin: 20px 0;

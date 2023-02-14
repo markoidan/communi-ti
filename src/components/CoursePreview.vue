@@ -68,7 +68,7 @@ export default {
 }
 .name {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
 }
 .name span {
   margin-right: 10px;

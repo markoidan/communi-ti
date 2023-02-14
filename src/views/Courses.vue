@@ -45,7 +45,7 @@
         <TopSessions class="top-sessions"></TopSessions>
       </div>
       <div class="wishlists">
-        <div class="title">Wish Lists</div>
+        <div class="title" style="margin-top:40px">Wish Lists</div>
         <WishLists></WishLists>
       </div>
     </div>
