@@ -26,8 +26,18 @@
             class="request-session-modal__subject--text"
           ></v-text-field>
         </div>
-        <div class="request-session-modal__level">
-          <session-level @selectLevel="updateSessionLevel" />
+        <div style="display: flex">
+          <div class="request-session-modal__level">
+            <session-level @selectLevel="updateSessionLevel" />
+          </div>
+          <div style="margin-top: 62px">
+            <filter-events
+              :items="categories"
+              placeholder="Category"
+              label="Category"
+              @filterChanged="updateCategory"
+            ></filter-events>
+          </div>
         </div>
         <div class="request-session-modal__focus-area">
           <span>Focus area</span>
@@ -53,7 +63,9 @@
 
 <script>
 import SessionLevel from "../components/SessionLevel.vue";
-
+import { mapState } from "pinia";
+import { useSessionsStore } from "@/store/sessions.js";
+import FilterEvents from "../components/FilterEvents.vue";
 export default {
   name: "RequestSessionModal",
   data() {
@@ -63,7 +75,10 @@ export default {
       check: true,
     };
   },
-  components: { SessionLevel },
+  computed: {
+    ...mapState(useSessionsStore, ["categories"]),
+  },
+  components: { SessionLevel, FilterEvents },
   props: {
     isOpen: {
       type: Boolean,
@@ -71,6 +86,9 @@ export default {
     },
   },
   methods: {
+    updateCategory(category) {
+      let a = Object.values(category.Value)[0];
+    },
     closeModal() {
       this.$emit("close");
     },
