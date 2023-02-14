@@ -490,8 +490,8 @@ export const useSessionsStore = defineStore("sessions", {
       newSession.id = max++;
       this.openCourses.push(newSession);
     },
-  },
-  addWishList(newWishList) {
-    this.wishList.push(newWishList);
+    addWishList(newWishList) {
+      this.wishList.push(newWishList);
+    },
   },
 });

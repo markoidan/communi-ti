@@ -3,7 +3,7 @@
     :model-value="isOpen"
     persistent
     width="600px"
-    :class="request - session - modal"
+    class="request-session-modal"
   >
     <v-card>
       <v-card-title class="request-session-modal__header">
@@ -52,7 +52,7 @@
       <v-card-actions>
         <v-spacer></v-spacer>
         <div style="padding: 20px">
-          <v-btn variant="flat" color="amber-accent-4" @click="closeModal"
+          <v-btn variant="flat" color="amber-accent-4" @click="saveModal"
             >Submit</v-btn
           >
         </div>
@@ -63,8 +63,8 @@
 
 <script>
 import SessionLevel from "../components/SessionLevel.vue";
-import { mapState } from "pinia";
 import { useSessionsStore } from "@/store/sessions.js";
+import { mapActions, mapState } from "pinia";
 import FilterEvents from "../components/FilterEvents.vue";
 export default {
   name: "RequestSessionModal",
@@ -72,7 +72,13 @@ export default {
     return {
       focusAreaPlaceholder: "Enter the wanted focus area for the session",
       subjectPlaceholder: "Enter text...",
-      check: true,
+      wishList: {
+        name: "",
+        level: "",
+        category: "",
+        description: "",
+        likes: 0,
+      },
     };
   },
   computed: {
@@ -86,11 +92,25 @@ export default {
     },
   },
   methods: {
-    updateCategory(category) {
-      let a = Object.values(category.Value)[0];
-    },
+    ...mapActions(useSessionsStore, ["addWishList"]),
     closeModal() {
       this.$emit("close");
+    },
+    saveModal() {
+      this.addWishList(this.wishList);
+      this.closeModal();
+    },
+    updateSubject($event) {
+      this.wishList.name = $event;
+    },
+    updateFocusArea($event) {
+      this.wishList.description = $event;
+    },
+    updateSessionLevel($event) {
+      this.wishList.level = $event;
+    },
+    updateCategory(category) {
+      this.wishList.category = Object.values(category.Value)[0];
     },
   },
 };
@@ -99,8 +119,9 @@ export default {
 <style scoped>
 .request-session-modal {
   padding: 0;
-  width: 600px;
-  font-size: 14px !important;
+  position: absolute;
+  left: 92px;
+  top: 79px;
 }
 .request-session-modal__header {
   display: flex;
@@ -119,7 +140,7 @@ export default {
   padding: 0;
 }
 .request-session-modal__subject {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 .request-session-modal__subject--text {
   padding-top: 5px;
@@ -131,9 +152,20 @@ export default {
   margin-left: 50px;
 }
 .request-session-modal__focus-area {
-  padding-top: 30px;
+  padding-top: 31px;
+}
+.request-session-modal__focus-area--text {
+  padding-top: 5px;
+  width: 507px;
+  height: 135px;
+}
+.request-session-modal__button {
+  margin: 51px 69px 43px 0;
 }
 .v-card-text {
   font-weight: 700;
+}
+.v-dialog .v-overlay__content > .v-card > .v-card-text {
+  font-size: 14px;
 }
 </style>

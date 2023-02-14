@@ -1,5 +1,5 @@
 <template>
-  <div class="level-icon" :class="category">
+  <div class="level-icon">
     <v-chip variant="text" :color="levelColor"> {{ level }} </v-chip>
   </div>
 </template>
@@ -32,6 +32,4 @@ export default {
 };
 </script>
 <style scoped>
-.level-icon {
-}
 </style>

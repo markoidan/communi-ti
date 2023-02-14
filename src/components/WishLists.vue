@@ -19,7 +19,7 @@
         ></CourseCategory
         ><span style="margin: 0 10px">{{ item.name }}</span>
         <CourseLevel
-          style="display: inline-block; width: 90px"
+          style="display: inline-block;"
           :level="item.level"
         ></CourseLevel>
       </span>
