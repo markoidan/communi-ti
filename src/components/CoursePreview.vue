@@ -1,14 +1,12 @@
 <template>
   <div class="preview">
-    <div>
-      <SpeakerMetadata
-        class="avatar"
-        :speaker="course.speaker"
-        :iconSize="45"
-        isSmallSize:true
-      ></SpeakerMetadata>
+    <div class="properties">
+      <CourseCategory
+        :category="course.category"
+        :withText="true"
+      ></CourseCategory>
+      <CourseLevel :level="course.level"></CourseLevel>
     </div>
-
     <div class="name">
       <span>{{ course.name }}</span>
     </div>
@@ -19,14 +17,15 @@
         {{ course.attendees.length }}
       </span>
     </div>
-
-    <div class="properties">
-      <CourseLevel :level="course.level"></CourseLevel>
-      <CourseCategory
-        :category="course.category"
-        :withText="true"
-      ></CourseCategory>
+    <div>
+      <SpeakerMetadata
+        class="avatar"
+        :speaker="course.speaker"
+        :iconSize="45"
+        isSmallSize:true
+      ></SpeakerMetadata>
     </div>
+
     <!-- <div class="description">{{ course.description }}</div> -->
   </div>
 </template>

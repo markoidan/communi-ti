@@ -6,8 +6,9 @@
   />
   <div class="courses">
     <div class="left">
-      <filter-events-row @filter-changed="filterChanged"></filter-events-row>
       <div class="title">Upcoming sessions</div>
+      <filter-events-row @filter-changed="filterChanged"></filter-events-row>
+
       <div class="courses-container">
         <div v-for="(course, index) in courses" :key="index" class="course">
           <CoursePreview
@@ -37,7 +38,7 @@
         <TopSessions class="top-sessions"></TopSessions>
       </div>
       <div class="wishlists">
-        <div class="title" style="margin-top:40px">Wish Lists</div>
+        <div class="title" style="margin-top: 40px">Wish Lists</div>
         <WishLists></WishLists>
       </div>
     </div>
@@ -140,7 +141,6 @@ export default {
 };
 </script>
 <style scoped>
-
 .courses {
   overflow: scroll;
   display: flex;
@@ -157,7 +157,6 @@ export default {
   gap: 20px;
 }
 .course {
- 
   /* overflow-y: scroll; */
   width: 330px;
   /* display: inline-block; */
@@ -188,6 +187,7 @@ export default {
   text-align: left;
   margin: 0 0 20px 0;
   font-size: 20px;
+  margin-top: 24px;
   font-weight: bold;
 }
 </style>

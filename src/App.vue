@@ -27,6 +27,8 @@
         <div style="margin: auto 0 auto auto; padding: 20px">
           <v-btn
             rounded
+            prepend-icon="mdi-plus"
+            variant="text"
             style="margin-right: 20px"
             color="amber-accent-4"
             @click="createSession"

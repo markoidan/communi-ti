@@ -1,6 +1,6 @@
 <template>
   <div class="level-icon" :class="category">
-    <v-chip :color="levelColor"> {{ level }} </v-chip>
+    <v-chip variant="plain" :color="levelColor"> {{ level }} </v-chip>
   </div>
 </template>
 <script>
@@ -14,7 +14,7 @@ export default {
       let color = "";
       switch (this.level) {
         case "Beginner": {
-          color = "#BFF3E0";
+          color = "#7fe7c1";
           break;
         }
         case "Intermediate": {
