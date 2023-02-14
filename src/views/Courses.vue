@@ -8,7 +8,10 @@
     Create session
   </v-btn>
   <v-btn @click="requestSession">Request session</v-btn>
-  <request-session-modal :is-open="isRequestSessionModalOpen" @close="isRequestSessionModalOpen = false" />
+  <request-session-modal
+    :is-open="isRequestSessionModalOpen"
+    @close="isRequestSessionModalOpen = false"
+  />
   <div class="courses">
     <div class="left">
       <filter-events-row @filter-changed="filterChanged"></filter-events-row>
@@ -38,7 +41,7 @@
     </div>
     <div class="right">
       <div>
-        <div class="title">Top sessions</div>
+        <div class="title top-courses">Top sessions</div>
         <TopSessions class="top-sessions"></TopSessions>
       </div>
       <div class="wishlists">
@@ -144,7 +147,8 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
+
 .courses {
   display: flex;
   flex-direction: row;
@@ -182,11 +186,12 @@ export default {
   flex: 1;
 }
 .wishlists {
+  margin-top: 40px;
   flex: 1;
 }
 .title {
   text-align: left;
-  margin: 20px 0;
+  margin: 0 0 20px 0;
   font-size: 20px;
   font-weight: bold;
 }

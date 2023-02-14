@@ -1,27 +1,46 @@
 <template>
   <div v-if="topCourses" class="top-course">
     <div v-for="(course, index) in topCourses" :key="course.id">
-      <span style="padding: 3px 10px">
-
-        <font-awesome-icon
-          icon="fa-solid fa-angle-down"
-          @click="course.isOpen = !course.isOpen"
-          v-if="!course.isOpen"
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-angle-up"
-          @click="course.isOpen = !course.isOpen"
-          v-if="course.isOpen"
-        />
-      </span>
-      <v-avatar
-        :image="course.speaker.pictureUrl"
-        :size="30"
-        class="avatar"
-      ></v-avatar>
-      <span>{{ course.name }}</span>
-      <div v-if="course.isOpen" class="description">
-        {{ course.description }}
+      <div style="display: flex; flex-direction: row">
+        <span style="padding: 3px 10px">
+          <font-awesome-icon
+            icon="fa-solid fa-angle-down"
+            @click="course.isOpen = !course.isOpen"
+            v-if="!course.isOpen"
+          />
+          <font-awesome-icon
+            icon="fa-solid fa-angle-up"
+            @click="course.isOpen = !course.isOpen"
+            v-if="course.isOpen"
+          />
+        </span>
+        <div>
+          <img src="src/assets/cup-1.jpg" class="logo" v-if="index == 0" />
+          <img src="src/assets/cup-2.jpg" class="logo" v-if="index == 1" />
+          <img src="src/assets/cup-3.jpg" class="logo" v-if="index == 2" />
+        </div>
+        <div>
+          <div class="row">
+            <div>
+              <b style="padding-right: 5px">{{ course.name }} </b>
+            </div>
+          </div>
+          <div class="row">
+            <span style="font-size: smaller"> {{ course.speaker.name }}</span>
+          </div>
+          <div class="row">
+            <span class="date">{{ course.date }}</span>
+            <div class="date">
+              <font-awesome-icon icon="fa-user-tie" />
+              <span style="padding-left: 5px">{{
+                course.attendees?.length
+              }}</span>
+            </div>
+          </div>
+          <div v-if="course.isOpen" class="description">
+            {{ course.description }}
+          </div>
+        </div>
       </div>
       <v-divider
         class="divider"
@@ -42,6 +61,16 @@ export default {
 </script>
 
 <style scoped>
+.top-course {
+  background-image: url("/src/assets/confetti.gif");
+  background-size: cover;
+}
+
+.course {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 .title {
   margin: 20px 0;
   font-size: 20px;
@@ -50,15 +79,26 @@ export default {
 .avatar {
   margin-right: 10px;
 }
-.top-course {
+.row {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: baseline;
+  line-height: 18px;
+  gap: 10px;
 }
 .divider {
   margin: 20px 0;
 }
 .description {
   background-color: #fafafa;
-  padding: 10px 0 0 30px;
+  padding: 10px 0;
+}
+.date {
+  color: gray;
+}
+.logo {
+  width: 40px;
+  height: 50px;
+  margin: 0 20px 0 10px;
 }
 </style>

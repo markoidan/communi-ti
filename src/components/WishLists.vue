@@ -1,17 +1,9 @@
 <template>
   <div v-for="(item, index) in wishList" :key="index">
-    <div class="wish-list">
+    <div class="wish-list" @click="item.isOpen = !item.isOpen">
       <span style="padding: 3px 10px">
-        <font-awesome-icon
-          icon="fa-solid fa-angle-down"
-          @click="item.isOpen = !item.isOpen"
-          v-if="!item.isOpen"
-        />
-        <font-awesome-icon
-          icon="fa-solid fa-angle-up"
-          @click="item.isOpen = !item.isOpen"
-          v-if="item.isOpen"
-        />
+        <font-awesome-icon icon="fa-solid fa-angle-down" v-if="!item.isOpen" />
+        <font-awesome-icon icon="fa-solid fa-angle-up" v-if="item.isOpen" />
       </span>
       <span class="wish-list-name">{{ item.name }}</span>
       <span class="wish-list-item"
@@ -23,10 +15,15 @@
           :withText="true"
           width="100px"
           height="30px"
-        ></CourseCategory
-      ></span>
-      <span style="cursor: pointer" @click.prevent="like(item)"
-        ><font-awesome-icon icon="fa-solid fa-thumbs-up" />
+        ></CourseCategory>
+      </span>
+      <span
+        class="icon-like"
+        style="cursor: pointer"
+        @click.stop="like(item)"
+        :class="{ 'blue-icon': item.liked }"
+      >
+        <font-awesome-icon icon="fa-solid fa-thumbs-up" />
         {{ item.likes }}</span
       >
     </div>
@@ -50,7 +47,13 @@ export default {
   },
   methods: {
     like(item) {
-      item.likes++;
+      if (!item.liked) {
+        item.likes++;
+        item.liked = true;
+      } else {
+        item.likes--;
+        item.liked = false;
+      }
     },
     addSession() {
       this.$router.push({ name: "addSession" });
@@ -76,5 +79,11 @@ export default {
 .description {
   background-color: #fafafa;
   padding: 10px;
+}
+.icon-like:hover {
+}
+.blue-icon {
+  color: #4267b2;
+  font-weight: bold;
 }
 </style>
