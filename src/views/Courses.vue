@@ -1,9 +1,6 @@
 <template>
   <CoursesHeader></CoursesHeader>
-  <request-session-modal
-    :is-open="isRequestSessionModalOpen"
-    @close="isRequestSessionModalOpen = false"
-  />
+
   <div class="courses">
     <div class="left">
       <div class="title">Upcoming sessions</div>
@@ -51,7 +48,6 @@ import FilterEventsRow from "@/components/FilterEventsRow.vue";
 import TopSessions from "@/components/TopSessions.vue";
 import WishLists from "@/components/WishLists.vue";
 import CoursesHeader from "@/components/Header.vue";
-import RequestSessionModal from "../components/RequestSessionModal.vue";
 import moment from "moment";
 import { mapState } from "pinia";
 import { useSessionsStore } from "@/store/sessions.js";
@@ -63,14 +59,12 @@ export default {
     TopSessions,
     WishLists,
     CoursesHeader,
-    RequestSessionModal,
   },
   data() {
     return {
       categoryFilter: [],
       levelFilter: [],
       dateFilter: [],
-      isRequestSessionModalOpen: false,
     };
   },
   computed: {
