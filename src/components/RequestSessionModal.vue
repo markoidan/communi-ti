@@ -7,7 +7,7 @@
   >
     <v-card>
       <v-card-title class="request-session-modal__header">
-        <span>Request a session</span>
+        <span style="font-weight: 700">Request a session</span>
         <v-btn
           variant="plain"
           @click="closeModal"
@@ -41,7 +41,11 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="amber-accent-4" @click="closeModal"> Submit </v-btn>
+        <div style="padding: 20px">
+          <v-btn variant="flat" color="amber-accent-4" @click="closeModal"
+            >Submit</v-btn
+          >
+        </div>
       </v-card-actions>
     </v-card>
   </v-dialog>

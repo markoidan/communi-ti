@@ -54,7 +54,7 @@ import CourseLevel from "@/components/CourseLevel.vue";
 import RequestSessionModal from "../components/RequestSessionModal.vue";
 export default {
   name: "WishLists",
-  components: { CourseCategory, CourseLevel, RequestSessionModal },
+  components: { CourseCategory, CourseLevel ,RequestSessionModal},
   computed: {
     ...mapState(useSessionsStore, ["wishList"]),
   },
