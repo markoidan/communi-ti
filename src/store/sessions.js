@@ -428,7 +428,6 @@ export const useSessionsStore = defineStore("sessions", {
         ],
       },
     ],
-
     wishList: [
       {
         name: "Israeli History",
@@ -491,5 +490,8 @@ export const useSessionsStore = defineStore("sessions", {
       newSession.id = max++;
       this.openCourses.push(newSession);
     },
+  },
+  addWishList(newWishList) {
+    this.wishList.push(newWishList);
   },
 });
