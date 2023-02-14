@@ -13,18 +13,23 @@
           ></v-text-field>
         </div>
         <div class="session-creation__categoryAndLevel">
-          <div class="session-creation__category">
-            <span>Category</span>
-            <filter-events
-              :items="categories"
-              @filterChanged="updateCategory"
-            ></filter-events>
-          </div>
-          <div class="session-creation__level">
-            <session-level @selectLevel="updateSessionLevel" />
+          <div style="display: flex">
+            <div style="margin-right: 100px;">
+              <span>Category</span>
+              <filter-events
+                style="margin-top: -10px"
+                :items="categories"
+                label="Category"
+                @filterChanged="updateCategory"
+              ></filter-events>
+            </div>
+            <div class="request-session-modal__level">
+              <session-level @selectLevel="updateSessionLevel" />
+            </div>
           </div>
         </div>
       </div>
+      <v-divider style="margin: 20px"></v-divider>
       <div class="session-creation__second-section">
         <div class="session-creation__dateAndLength">
           <div class="session-creation__date">
@@ -133,8 +138,8 @@ export default {
           length: 0,
           attendees: [],
         };
-        this.$nextTick (() => {
-        this.isWantToCreateAnother = false;
+        this.$nextTick(() => {
+          this.isWantToCreateAnother = false;
         });
       }
     },
@@ -171,7 +176,7 @@ export default {
   font-size: -webkit-xxx-large;
   font-weight: bolder;
   font-family: "Lato";
-  margin-left: 40px;
+  margin: 0 40px 30px 40px;
 }
 .session-creation__section {
   display: flex;
@@ -185,9 +190,6 @@ export default {
   flex-direction: column;
 }
 .session-creation__first-section {
-  border-bottom-color: black;
-  border-bottom-style: solid;
-  border-bottom-width: thin;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -222,7 +224,7 @@ export default {
 .session-creation__date {
   display: flex;
   flex-direction: column;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 .session-creation__date--text {
   width: 300px;
