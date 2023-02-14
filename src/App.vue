@@ -2,7 +2,14 @@
   <v-app>
     <v-main>
       <div style="display: flex; flex-direction: row; background-color: black">
-        <div style="display: flex; flex-direction: column; margin:auto; padding: 10px 0 0 400px;">
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            justify-content: space-between;
+          "
+        >
           <img src="src/assets/CommunityLogo.png" class="logo" />
           <span
             style="
@@ -12,12 +19,20 @@
               line-height: 36px;
               margin-top: -3px;
               font-weight: bold;
-              margin-bottom: 26px;
+              margin-bottom: 5px;
             "
             >Community</span
           >
         </div>
-        <div style="margin: auto 0 auto auto; padding:20px">
+        <div style="margin: auto 0 auto auto; padding: 20px">
+          <v-btn
+            rounded
+            style="margin-right: 20px"
+            color="amber-accent-4"
+            @click="createSession"
+          >
+            Create session
+          </v-btn>
           <v-avatar image="src/assets/sveta.jpg"></v-avatar>
           <span style="color: white; margin: 10px; font-family: 'Lato'"
             >Sveta Osherov Gross</span
@@ -40,6 +55,11 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    createSession() {
+      this.$router.push({ name: "addSession" });
+    },
+  },
 };
 </script>
 
@@ -55,7 +75,7 @@ export default {
   width: 100px;
 }
 .logo {
-  height: 40px;
+  height: 35px;
   width: 200px;
 }
 </style>

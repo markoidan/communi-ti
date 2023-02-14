@@ -1,12 +1,5 @@
 <template>
   <CoursesHeader></CoursesHeader>
-  <v-btn
-    color="amber-accent-4"
-    @click="createSession"
-  >
-    Create session
-  </v-btn>
-  <v-btn @click="requestSession">Request session</v-btn>
   <request-session-modal
     :is-open="isRequestSessionModalOpen"
     @close="isRequestSessionModalOpen = false"
@@ -149,6 +142,7 @@ export default {
 <style scoped>
 
 .courses {
+  overflow: scroll;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -163,6 +157,7 @@ export default {
   gap: 20px;
 }
 .course {
+ 
   /* overflow-y: scroll; */
   width: 330px;
   /* display: inline-block; */
