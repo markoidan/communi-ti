@@ -5,32 +5,38 @@
         <font-awesome-icon icon="fa-solid fa-angle-down" v-if="!item.isOpen" />
         <font-awesome-icon icon="fa-solid fa-angle-up" v-if="item.isOpen" />
       </span>
-      <span class="wish-list-name">{{ item.name }}</span>
-      <span class="wish-list-item"
-        ><CourseLevel :level="item.level"></CourseLevel
-      ></span>
-      <span class="wish-list-item"
-        ><CourseCategory
+      <span class="wish-list-name">
+        <CourseCategory
+          style="display: inline-block; margin-right:10px"
           :category="item.category"
-          :withText="true"
-          width="100px"
+          :withText="false"
+          width="40px"
           height="30px"
-        ></CourseCategory>
-      </span>
-      <span
-        class="icon-like"
-        style="cursor: pointer"
-        @click.stop="like(item)"
-        :class="{ 'blue-icon': item.liked }"
+        ></CourseCategory
+        >{{ item.name }}</span
       >
-        <font-awesome-icon icon="fa-solid fa-thumbs-up" />
-        {{ item.likes }}</span
+      <span style="flex: 2">
+        <CourseLevel
+          style="display: inline-block; width: 90px"
+          :level="item.level"
+        ></CourseLevel>
+      </span>
+      <span class="wish-list-item">
+        <span
+          class="icon-like"
+          style="cursor: pointer"
+          @click.stop="like(item)"
+          :class="{ 'blue-icon': item.liked }"
+        >
+          <font-awesome-icon icon="fa-solid fa-thumbs-up" />
+          {{ item.likes }}</span
+        ></span
       >
     </div>
     <div v-if="item.isOpen" class="description">
       {{ item.description }}
     </div>
-    <v-divider></v-divider>
+    <v-divider class="divider"></v-divider>
   </div>
   <v-btn variant="flat" @click="addSession">+ Request a session</v-btn>
 </template>
@@ -64,26 +70,27 @@ export default {
 <style scoped>
 .wish-list {
   display: flex;
-  padding: 20px 0;
   flex-direction: row;
   align-items: flex-start;
   flex-wrap: nowrap;
-  flex-basis: 100px;
+  gap: 10px;
 }
 .wish-list-name {
-  flex: 210px 0 1;
+  flex: 2;
 }
 .wish-list-item {
-  flex: 150px 0 1;
+  flex: 1;
 }
 .description {
   background-color: #fafafa;
-  padding: 10px;
+  padding: 10px 40px;
 }
-.icon-like:hover {
-}
+
 .blue-icon {
   color: #4267b2;
   font-weight: bold;
+}
+.divider {
+margin: 20px 0;
 }
 </style>

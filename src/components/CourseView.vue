@@ -66,7 +66,7 @@
       <v-banner lines="two">
         <template v-slot:text>
           <div>TUE, FEB 14 · 3:00 AM IST</div>
-          <div>Spanish Practice Session for All Levels</div>
+          <div>{{course.name}}</div>
         </template>
 
         <template v-slot:actions>

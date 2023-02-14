@@ -6,7 +6,7 @@
       :class="[{ 'speaker-metadata__description--size': isSmallSize }]"
     >
       <span>{{ speaker.name }}</span>
-      <span>{{ speaker.description }}</span>
+      <i style="font-size:13px;">{{ speaker.description }}</i>
     </div>
   </div>
 </template>
@@ -41,6 +41,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+  line-height: 20px;
 }
 .speaker-metadata__description--size {
   font-size: 14px;

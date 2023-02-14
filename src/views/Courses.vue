@@ -175,12 +175,13 @@ export default {
 }
 .left {
   flex: 2;
-  margin: 0 40px;
+  margin: 0 0 0 100px;
 }
 .right {
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin: 0 100px 0 0;
 }
 .top-sessions {
   flex: 1;

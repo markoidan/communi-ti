@@ -23,11 +23,10 @@
           <div class="row">
             <div>
               <b style="padding-right: 5px">{{ course.name }} </b>
+              <span style="font-size: smaller">{{ course.speaker.name }}</span>
             </div>
           </div>
-          <div class="row">
-            <span style="font-size: smaller"> {{ course.speaker.name }}</span>
-          </div>
+          <div class="row"></div>
           <div class="row">
             <span class="date">{{ course.date }}</span>
             <div class="date">
@@ -37,10 +36,10 @@
               }}</span>
             </div>
           </div>
-          <div v-if="course.isOpen" class="description">
-            {{ course.description }}
-          </div>
         </div>
+      </div>
+      <div v-if="course.isOpen" class="description">
+        {{ course.description }}
       </div>
       <v-divider
         class="divider"
@@ -91,14 +90,15 @@ export default {
 }
 .description {
   background-color: #fafafa;
-  padding: 10px 0;
+  padding: 10px 40px;
+  flex: 10;
 }
 .date {
   color: gray;
 }
 .logo {
-  width: 40px;
-  height: 50px;
+  width: 30px;
+  height: 35px;
   margin: 0 20px 0 10px;
 }
 </style>
