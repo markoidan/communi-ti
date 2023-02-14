@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <div style="display: flex; flex-direction: row; background-color: black">
-        <div style="display: flex; flex-direction: column; margin:auto; padding: 10px 500px;">
+        <div style="display: flex; flex-direction: column; margin:auto; padding: 10px 0 0 400px;">
           <img src="src/assets/CommunityLogo.png" class="logo" />
           <span
             style="
