@@ -7,7 +7,7 @@
   >
     <v-card>
       <v-card-title class="request-session-modal__header">
-        <span>Request a session</span>
+        <span style="font-weight: 700">Request a session</span>
         <v-btn
           variant="plain"
           @click="closeModal"
@@ -26,8 +26,18 @@
             class="request-session-modal__subject--text"
           ></v-text-field>
         </div>
-        <div class="request-session-modal__level">
-          <session-level @selectLevel="updateSessionLevel" />
+        <div style="display: flex">
+          <div style="margin-top: 62px">
+            <filter-events
+              :items="categories"
+              placeholder="Category"
+              label="Category"
+              @filterChanged="updateCategory"
+            ></filter-events>
+          </div>
+          <div class="request-session-modal__level">
+            <session-level @selectLevel="updateSessionLevel" />
+          </div>
         </div>
         <div class="request-session-modal__focus-area">
           <span>Focus area</span>
@@ -41,7 +51,11 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn color="amber-accent-4" @click="closeModal"> Submit </v-btn>
+        <div style="padding: 20px">
+          <v-btn variant="flat" color="amber-accent-4" @click="closeModal"
+            >Submit</v-btn
+          >
+        </div>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -49,7 +63,9 @@
 
 <script>
 import SessionLevel from "../components/SessionLevel.vue";
-
+import { mapState } from "pinia";
+import { useSessionsStore } from "@/store/sessions.js";
+import FilterEvents from "../components/FilterEvents.vue";
 export default {
   name: "RequestSessionModal",
   data() {
@@ -59,7 +75,10 @@ export default {
       check: true,
     };
   },
-  components: { SessionLevel },
+  computed: {
+    ...mapState(useSessionsStore, ["categories"]),
+  },
+  components: { SessionLevel, FilterEvents },
   props: {
     isOpen: {
       type: Boolean,
@@ -67,6 +86,9 @@ export default {
     },
   },
   methods: {
+    updateCategory(category) {
+      let a = Object.values(category.Value)[0];
+    },
     closeModal() {
       this.$emit("close");
     },
@@ -106,6 +128,7 @@ export default {
 }
 .request-session-modal__level {
   padding-top: 50px;
+  margin-left: 50px;
 }
 .request-session-modal__focus-area {
   padding-top: 30px;

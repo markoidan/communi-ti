@@ -5,6 +5,10 @@
         <font-awesome-icon icon="fa-solid fa-angle-down" v-if="!item.isOpen" />
         <font-awesome-icon icon="fa-solid fa-angle-up" v-if="item.isOpen" />
       </span>
+      <request-session-modal
+        :is-open="isRequestSessionModalOpen"
+        @close="isRequestSessionModalOpen = false"
+      />
       <span class="wish-list-name">
         <CourseCategory
           style="display: inline-block; margin-right: 10px"
@@ -38,18 +42,26 @@
     </div>
     <v-divider class="divider" v-if="index != wishList.length - 1"></v-divider>
   </div>
-  <v-btn variant="flat" @click="addSession" style="margin-top:30px;">+ Request a session</v-btn>
+  <v-btn variant="flat" @click="requestSession" style="margin-top: 30px"
+    >+ Request a session</v-btn
+  >
 </template>
 <script>
 import { useSessionsStore } from "@/store/sessions.js";
 import { mapState } from "pinia";
 import CourseCategory from "@/components/CourseCategory.vue";
 import CourseLevel from "@/components/CourseLevel.vue";
+import RequestSessionModal from "../components/RequestSessionModal.vue";
 export default {
   name: "WishLists",
-  components: { CourseCategory, CourseLevel },
+  components: { CourseCategory, CourseLevel ,RequestSessionModal},
   computed: {
     ...mapState(useSessionsStore, ["wishList"]),
+  },
+  data() {
+    return {
+      isRequestSessionModalOpen: false,
+    };
   },
   methods: {
     like(item) {
@@ -63,6 +75,9 @@ export default {
     },
     addSession() {
       this.$router.push({ name: "addSession" });
+    },
+    requestSession() {
+      this.isRequestSessionModalOpen = true;
     },
   },
 };
