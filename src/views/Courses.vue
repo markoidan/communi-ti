@@ -1,7 +1,6 @@
 <template>
   <CoursesHeader></CoursesHeader>
   <v-btn
-    class="session-creation__create--button"
     color="amber-accent-4"
     @click="createSession"
   >

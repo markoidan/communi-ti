@@ -63,17 +63,40 @@
         </div>
       </div>
 
-      <v-banner lines="two">
-        <template v-slot:text>
-          <div>TUE, FEB 14 · 3:00 AM IST</div>
-          <div>{{course.name}}</div>
-        </template>
+      <div
+        style="
+          width: 400px;
+          margin: auto;
+          font-family: 'Lato';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 22px;
+          margin-top: 20px;
+        "
+      >
+        {{ course.name }}
+      </div>
+      <div class="course-view-location-time-bottom">
+        <div style="margin-right: 8px">
+          <v-img :width="14" src="../../src/assets/clock.svg" cover></v-img>
+        </div>
+        <div class="course-view-header-date-bottom" style="margin-right: 34px">
+          {{ course.date }}
+        </div>
+        <div class="course-view-header-date-bottom" style="margin-right: 34px">
+          |
+        </div>
+        <div style="margin-right: 8px">
+          <v-img :width="14" src="../../src/assets/location.svg" cover></v-img>
+        </div>
+        <div class="course-view-header-date">{{ course.location }}</div>
 
-        <template v-slot:actions>
-          <v-btn color="deep-purple-accent-4"> Share </v-btn>
-          <v-btn color="deep-purple-accent-4"> Attend online </v-btn>
-        </template>
-      </v-banner>
+        <div style="margin-left: 30px; margin-top: -9px">
+          <v-btn style="margin-right:28px" prepend-icon="mdi-share-variant-outline"> </v-btn>
+          <v-btn variant="flat" color="amber-accent-4"> Submit </v-btn>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -150,7 +173,23 @@ export default {
   text-align: center;
   margin-bottom: 42px;
 }
+.course-view-location-time-bottom {
+  margin-left: 753px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-bottom: 42px;
+}
 .course-view-header-date {
+  line-height: 12px;
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+.course-view-header-date-bottom {
   line-height: 12px;
   font-family: "Lato";
   font-style: normal;
