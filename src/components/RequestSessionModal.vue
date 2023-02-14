@@ -27,10 +27,11 @@
           ></v-text-field>
         </div>
         <div style="display: flex">
-          <div style="margin-top: 62px">
+          <div style="margin-top: 54px">
+            <span>Category</span>
             <filter-events
+              style="margin-top: -10px"
               :items="categories"
-              placeholder="Category"
               label="Category"
               @filterChanged="updateCategory"
             ></filter-events>
