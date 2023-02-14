@@ -93,8 +93,14 @@
         <div class="course-view-header-date">{{ course.location }}</div>
 
         <div style="margin-left: 30px; margin-top: -9px">
-          <v-btn style="margin-right:28px" prepend-icon="mdi-share-variant-outline"> </v-btn>
-          <v-btn variant="flat" color="amber-accent-4"> Submit </v-btn>
+          <v-btn
+            style="margin-right: 28px"
+            prepend-icon="mdi-share-variant-outline"
+          >
+          </v-btn>
+          <v-btn variant="flat" color="amber-accent-4" @click="submitCourse">
+            Submit
+          </v-btn>
         </div>
       </div>
     </div>
@@ -140,6 +146,12 @@ export default {
     this.course = this.openCourses.filter((a) => {
       return a.id == this.$route.params.id;
     })[0];
+  },
+  methods: {
+    submitCourse() {
+      this.course.attendees.push("Sveta Osherov Gross");
+      this.$router.push("/");
+    },
   },
 };
 </script>
